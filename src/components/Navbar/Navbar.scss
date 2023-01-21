@@ -1,0 +1,91 @@
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 0px;
+    padding: 8px 20px;
+    position: sticky;
+    top: 0%;
+    z-index: 10;
+    background-color: white;
+
+    p{
+        margin: 0px;
+    }
+
+    a{
+        color: #555;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    svg{
+        height: 20px;
+        color: gray;
+    }
+
+    .left{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+
+        .arrows{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            img{
+                height: 16px;
+                width: auto;
+            }
+
+            p{
+                font-size: 16px;
+            }
+        }
+    }
+    .center{
+        font-size: 30px;
+        letter-spacing: 3px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+
+    }
+    .right{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+    }
+    .icons{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+        
+        .divcon{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+            p{
+                position: absolute;
+                top: -10px;
+                right: -10px;
+                width: 20px;
+                height: 20px;
+                color: white;
+                border-radius: 100%;
+                background-color: blue;
+                font-size: 13px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+}

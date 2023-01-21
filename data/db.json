@@ -1,0 +1,34 @@
+{
+    "products" : [
+        {
+            "id"            : 1,
+            "ajio"          : "https://www.luxe.ajio.com/hunkemoller-arrow-logo-print-tank-top/p/410337796_blk?user=old",
+            "brand"         : "HUNKEMOLLER",
+            "title"         : "Arrow Logo Print Tank Top",
+            "images"        : [ "https://assets.ajio.com/medias/sys_master/root/20220727/21nu/62e072ecf997dd03e2fbbf1b/-1117Wx1400H-410337796-blk-MODEL.jpg" , "https://assets.ajio.com/medias/sys_master/root/20220727/nsJV/62e07919f997dd03e2fbe428/-1117Wx1400H-410337796-blk-MODEL2.jpg" , "https://assets.ajio.com/medias/sys_master/root/20220727/RPkc/62e041d7f997dd03e2f9dc09/-1117Wx1400H-410337796-blk-MODEL4.jpg" ],
+            "oldprice"      : 1795,
+            "price"         : 987,
+            "description"   : [ "Breathable mesh, active stretch" , "Machine wash", "82% polyamide, 18% elastane" ],
+            "category"      : "Top",
+            "gender"        : "Women",
+            "featured"      : true,
+            "trending"      : true,
+            "exculsive"     : true
+        },
+        {
+            "id"            : 2,
+            "ajio"          : "https://www.luxe.ajio.com/hunkemoller-crew-neck-top-with-taping/p/410307798_samb?user=old",
+            "brand"         : "HUNKEMOLLER",
+            "title"         : "Crew-Neck Top With Taping",
+            "images"        : [ "https://assets.ajio.com/medias/sys_master/root/20220727/zBPO/62e07b68aeb26921afa040e3/-1117Wx1400H-410307798-samb-MODEL.jpg" , "https://assets.ajio.com/medias/sys_master/root/20220727/wnn4/62e07725f997dd03e2fbd897/-1117Wx1400H-410307798-samb-MODEL3.jpg" , "https://assets.ajio.com/medias/sys_master/root/20220727/Gui2/62e0484daeb26921af9e8125/-1117Wx1400H-410307798-samb-MODEL2.jpg" ],
+            "oldprice"      : 2795,
+            "price"         : 2096,
+            "description"   : [ "Relaxed Fit" , "Machine wash", "95% polyester, 5% elastane" ],
+            "category"      : "Top",
+            "gender"        : "Women",
+            "featured"      : true,
+            "trending"      : false,
+            "exculsive"     : false
+        }
+    ]
+}

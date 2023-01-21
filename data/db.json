@@ -29,37 +29,6 @@
             "featured"      : true,
             "trending"      : false,
             "exculsive"     : false
-        },
-        {
-            "id"            : 2,
-            "ajio"          : "https://www.luxe.ajio.com/hunkemoller-crew-neck-top-with-taping/p/410307798_samb?user=old",
-            "brand"         : "HUNKEMOLLER",
-            "title"         : "Crew-Neck Top With Taping",
-            "images"        : [ "https://assets.ajio.com/medias/sys_master/root/20220727/zBPO/62e07b68aeb26921afa040e3/-1117Wx1400H-410307798-samb-MODEL.jpg" , "https://assets.ajio.com/medias/sys_master/root/20220727/wnn4/62e07725f997dd03e2fbd897/-1117Wx1400H-410307798-samb-MODEL3.jpg" , "https://assets.ajio.com/medias/sys_master/root/20220727/Gui2/62e0484daeb26921af9e8125/-1117Wx1400H-410307798-samb-MODEL2.jpg" ],
-            "oldprice"      : 2795,
-            "price"         : 2096,
-            "description"   : [ "Relaxed Fit" , "Machine wash", "95% polyester, 5% elastane" ],
-            "category"      : "Top",
-            "gender"        : "Women",
-            "featured"      : true,
-            "trending"      : false,
-            "exculsive"     : false
-        },
-        {
-            "id"            : 2,
-            "ajio"          : "https://www.luxe.ajio.com/hunkemoller-crew-neck-top-with-taping/p/410307798_samb?user=old",
-            "brand"         : "HUNKEMOLLER",
-            "title"         : "Crew-Neck Top With Taping",
-            "images"        : [ "https://assets.ajio.com/medias/sys_master/root/20220727/zBPO/62e07b68aeb26921afa040e3/-1117Wx1400H-410307798-samb-MODEL.jpg" , "https://assets.ajio.com/medias/sys_master/root/20220727/wnn4/62e07725f997dd03e2fbd897/-1117Wx1400H-410307798-samb-MODEL3.jpg" , "https://assets.ajio.com/medias/sys_master/root/20220727/Gui2/62e0484daeb26921af9e8125/-1117Wx1400H-410307798-samb-MODEL2.jpg" ],
-            "oldprice"      : 2795,
-            "price"         : 2096,
-            "description"   : [ "Relaxed Fit" , "Machine wash", "95% polyester, 5% elastane" ],
-            "category"      : "Top",
-            "gender"        : "Women",
-            "featured"      : true,
-            "trending"      : false,
-            "exculsive"     : false
         }
-        
     ]
 }

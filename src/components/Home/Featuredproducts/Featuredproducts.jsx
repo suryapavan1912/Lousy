@@ -17,7 +17,7 @@ const [data] = useFetch()
             Officiis voluptas.</p>
         </div>
         <div className="bottom">
-            {data.map((item,id) => {return(<Card product={item} key={id} />)})}
+            {data.filter((item,id)=> id<4).map((item,id) => {return(<Card product={item} key={id} />)})}
         </div>
     </div>}
     </div>

@@ -3,13 +3,17 @@ import { useState } from 'react'
 import './Product.scss'
 import { ChevronDown, Heart, ShoppingBag } from 'react-feather'
 import useFetch from '../fetch'
+import { useParams } from 'react-router-dom'
 
 function Product() {
-
-const [image,setimage] = useState(0)
-const [quantity,setquantity]  = useState(0)
-const [data] = useFetch('/1')
-
+const varient = ['XS','S','M','L','XL'];
+const description = [<p>Extra Small <span>(XS)</span></p>,<p>Small <span>(S)</span></p>,<p>Medium <span>(M)</span></p>,<p>Large <span>(L)</span></p>,<p>Extra Large <span>(XL)</span></p>];
+const {id} = useParams();
+const [image,setimage] = useState(0);
+const [quantity,setquantity]  = useState(0);
+const [data] = useFetch('/'+id);
+const [sizetext, setsizetext] = useState('Select Size');
+const [size,setsize] = useState(null)
 
   return (
     <div>
@@ -31,10 +35,13 @@ const [data] = useFetch('/1')
           </div>
           <div className="price">
             <p className='new'>₹{data.price}</p>
-            <p className='old'>MRP <span>₹{data.oldprice}</span></p>
+            {data.oldprice && <p className='old'>MRP <span>₹{data.oldprice}</span></p>}
           </div>
-          <div className="description">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio adipisci ducimus sit placeat velit voluptatibus sed quidem ut corporis, quibusdam quis consequatur magni sapiente, quisquam deleniti. Labore distinctio accusamus debitis.</p>
+          <div className='size'>
+            {sizetext}
+            <div>
+              {varient.map((type,id)=> <button key={id}  onClick={(e)=>{setsizetext(description[id]);setsize(varient[id])}}>{type}</button>)}
+            </div>
           </div>
           <div className="count">
             <button onClick={()=>{setquantity(pre=>pre>0?pre-1:0)}}>-</button>

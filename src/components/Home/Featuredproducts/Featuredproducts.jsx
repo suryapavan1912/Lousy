@@ -17,7 +17,8 @@ const [data] = useFetch()
             Officiis voluptas.</p>
         </div>
         <div className="bottom">
-            {data.filter((item,id)=> id<4).map((item,id) => {return(<Card product={item} key={id} />)})}
+            {props.type === "Featured" && data.filter((item,id)=> item.featured===true).filter((item,id)=> id<4).map((item,id) => {return(<Card product={item} key={id} />)})}
+            {props.type === "Trending" && data.filter((item,id)=> item.trending===true).filter((item,id)=> id<4).map((item,id) => {return(<Card product={item} key={id} />)})}
         </div>
     </div>}
     </div>

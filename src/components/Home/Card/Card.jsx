@@ -4,7 +4,7 @@ import './Card.scss'
 
 function Card(props) {
   return (
-      <NavLink to={`/${props.product.gender}/${props.product.id}`}>
+      <NavLink target="_blank" to={`/${props.product.gender}/${props.product.id}`}>
         <div  className='card'>
           <div className="image">
             {props.product.exculsive && <span>Exclusive</span>}
@@ -16,6 +16,7 @@ function Card(props) {
           <div className='prices'>
             <p className='new'>₹{props.product.price}</p>
             {props.product.oldprice && <p className='old'>₹{props.product.oldprice}</p>}
+            <p>{props.product.oldprice && <span className='discount'>{Math.round(100*((props.product.oldprice-props.product.price)/props.product.oldprice))}% off</span>}</p>
           </div>
         </div>
       </NavLink>

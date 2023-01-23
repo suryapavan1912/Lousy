@@ -8,12 +8,13 @@ import { useParams } from 'react-router-dom'
 function Product() {
 const varient = ['XS','S','M','L','XL'];
 const description = [<p>Extra Small <span>(XS)</span></p>,<p>Small <span>(S)</span></p>,<p>Medium <span>(M)</span></p>,<p>Large <span>(L)</span></p>,<p>Extra Large <span>(XL)</span></p>];
+const [sizetext, setsizetext] = useState('Select Size');
+const [size,setsize] = useState(null)
+
 const {id} = useParams();
 const [image,setimage] = useState(0);
 const [quantity,setquantity]  = useState(0);
 const [data] = useFetch('/'+id);
-const [sizetext, setsizetext] = useState('Select Size');
-const [size,setsize] = useState(null)
 
   return (
     <div>
@@ -36,11 +37,12 @@ const [size,setsize] = useState(null)
           <div className="price">
             <p className='new'>₹{data.price}</p>
             {data.oldprice && <p className='old'>MRP <span>₹{data.oldprice}</span></p>}
+            <p>({data.oldprice && <span className='discount'>{Math.round(100*((data.oldprice-data.price)/data.oldprice))}% OFF</span>})</p>
           </div>
           <div className='size'>
             {sizetext}
             <div>
-              {varient.map((type,id)=> <button key={id}  onClick={(e)=>{setsizetext(description[id]);setsize(varient[id])}}>{type}</button>)}
+              {varient.map((type,id)=> <button key={id} className={type === size && 'active'} onClick={(e)=>{setsizetext(description[id]);setsize(varient[id]);}}>{type}</button>)}
             </div>
           </div>
           <div className="count">

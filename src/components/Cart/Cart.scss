@@ -38,6 +38,22 @@
             flex-direction: column;
             gap: 10px;
 
+                .flex{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: baseline;
+
+                    .price{
+                        color: #4285F4;
+                    }
+                    
+                    .oldprice{
+                            color: gray;
+                            font-size: 15px;
+                            text-decoration: line-through;
+                        }
+                }
             p{
                 margin: 0px;
                 font-size: 15px;
@@ -47,13 +63,9 @@
                 color: #555;
             }
             .desc{
-                color: gray;
-                font-size: 13px;
-                text-align: justify;
+            
             }
-            .price{
-                color: #4285F4;
-            }
+
         }
         .del{
             flex: 1;

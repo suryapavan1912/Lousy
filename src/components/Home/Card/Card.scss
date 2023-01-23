@@ -45,7 +45,7 @@ a{
         }
         .prices{
             display: flex;
-            gap: 15px;
+            gap: 8px;
             align-items: baseline;
             font-size: 14px;
 
@@ -53,6 +53,10 @@ a{
             .old{
                 text-decoration: line-through;
                 color: gray;
+                font-size: 14px;
+            }
+
+            .discount{
                 font-size: 13px;
             }
         }

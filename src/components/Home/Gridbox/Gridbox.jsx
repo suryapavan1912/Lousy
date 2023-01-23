@@ -8,11 +8,11 @@ function Gridbox() {
         <div className="col">
           <div className="row">
             <img src='https://images.pexels.com/photos/10123270/pexels-photo-10123270.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt=''/>
-            <NavLink to='/products/1'>Sale</NavLink>
+            <NavLink to='/Sale'>Sale</NavLink>
           </div>
           <div className="row">
             <img src='https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt=''/>
-            <NavLink to='/'>Women</NavLink>
+            <NavLink to='/Women'>Women</NavLink>
           </div>
         </div>
         <div className="col">
@@ -23,7 +23,7 @@ function Gridbox() {
           <div className="row">
             <div className="col">
               <img src='https://images.pexels.com/photos/8680099/pexels-photo-8680099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt=''/>
-              <NavLink to='/'>Men</NavLink>
+              <NavLink to='/Men'>Men</NavLink>
             </div>
             <div className="col">
               <img src='https://images.pexels.com/photos/4226866/pexels-photo-4226866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt=''/>

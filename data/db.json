@@ -41,7 +41,7 @@
             "description"   : [  "Machine wash", "98% cotton, 2% elastane" ],
             "category"      : "Top",
             "gender"        : "Women",
-            "featured"      : false,
+            "featured"      : true,
             "trending"      : false,
             "exculsive"     : false
         },
@@ -70,7 +70,7 @@
             "description"   : [ "Relaxed Fit" , "Machine wash", "95% polyester, 5% elastane" ],
             "category"      : "Top",
             "gender"        : "Women",
-            "featured"      : true,
+            "featured"      : false,
             "trending"      : false,
             "exculsive"     : false
         },

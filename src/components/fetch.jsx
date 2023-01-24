@@ -11,8 +11,13 @@ useEffect(()=>{
 async function dofetch(){
   try{
     const responce = await axios.get(url)
+    if(responce.data){
     setdata(responce.data)
-    // console.log(responce.data);
+    }
+    else{
+      throw Error('404 Not found')
+    }
+    
   }
   catch(error){
       console.log(error.message)

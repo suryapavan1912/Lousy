@@ -16,8 +16,8 @@ function Gridbox() {
           </div>
         </div>
         <div className="col">
-          <img src='https://images.pexels.com/photos/1813947/pexels-photo-1813947.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt=''/>
-          <NavLink to='/'>New Season</NavLink>
+          <img src='https://images.pexels.com/photos/8471827/pexels-photo-8471827.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt=''/>
+          <NavLink to='/Children'>Kids</NavLink>
         </div>
         <div className="col-large">
           <div className="row">
@@ -27,7 +27,7 @@ function Gridbox() {
             </div>
             <div className="col">
               <img src='https://images.pexels.com/photos/4226866/pexels-photo-4226866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt=''/>
-              <NavLink to='/'>Accessories</NavLink>
+              <NavLink to='/Accessories'>Accessories</NavLink>
             </div>
           </div>
           <div className="row">

@@ -56,14 +56,14 @@ const [data] = useFetch('/product/'+id);
           <div className="wishlist">
             <Heart /><p>ADD TO WISHLIST</p>
           </div>
-          <div className='details'>
+          {data.description && <div className='details'>
             <p>Product Details</p>
             <ul>
               <div>
-                {data.description.map((info,id) => <li key={id}>{info}</li>)}
+                {data.description?.map((info,id) => <li key={id}>{info}</li>)}
               </div>
             </ul>
-          </div>
+          </div>}
           <div className="additional">
             <p>More Info</p>
             <ChevronDown />

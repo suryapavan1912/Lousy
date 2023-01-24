@@ -4,6 +4,7 @@ import useFetch from '../fetch'
 function Filter(props) {
 
   const [data] = useFetch(props.category)
+  
     
   return (
             data && data

@@ -5,7 +5,7 @@ import useFetch from '../../fetch'
 
 function Featuredproducts(props) {
 
-const [data] = useFetch()
+const [data] = useFetch('/products')
 
   return (
     <div>

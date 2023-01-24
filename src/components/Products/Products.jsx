@@ -6,22 +6,25 @@ import './Products.scss'
 function Products() {
 
   const { category } = useParams()
-  const [maxprice,setmaxprice] = useState(10000)
+  console.log(category);
+  const [maxprice,setmaxprice] = useState(100000)
   const [sort,setsort] = useState(null)
-  
 
+let sorts
+  
+if (category === "Men"){sorts =  ["Shirts","T-Shirts","Jackets","Jeans","Trousers"]}
+else if (category === "Women"){sorts =  ["Tops","Jumpsuits","Jackets","Jeans","Skirts"]}
+else(sorts =  ["Shirts","T-Shirts","Jackets","Jeans","Trousers"])
   return (
     <div className="products">
       <div className="left">
         <div className="filteritem">
           <h1>Product Categories</h1>
-          <div className="inputitem"><input type="checkbox" id='1' label={1}/><label htmlFor='1'>Shoes</label></div>
-          <div className="inputitem"><input type="checkbox" id='2' label={2}/><label htmlFor='2'>Skirts</label></div>
-          <div className="inputitem"><input type="checkbox" id='3' label={3}/><label htmlFor='3'>Coats</label></div>
+          {sorts.map((item,id) => <div className="inputitem" key={id}><input type="checkbox" id='1' label={1} /><label htmlFor='1'>{item}</label></div>)}
         </div>
         <div className="filteritem">
           <h1>Filter by price</h1>
-          <div className="inputitem"><p>0</p><input type="range" min={0} max={10000} value={maxprice} onChange={(e)=>{setmaxprice(e.target.value)}}/><p>{maxprice}</p></div>
+          <div className="inputitem"><p>0</p><input type="range" min={0} max={100000} value={maxprice} onChange={(e)=>{setmaxprice(e.target.value)}}/><p>{maxprice}</p></div>
         </div>
         <div className="filteritem">
           <h1>Sort by</h1>

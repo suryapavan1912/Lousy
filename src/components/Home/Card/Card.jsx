@@ -7,7 +7,7 @@ function Card(props) {
       <NavLink target="_blank" to={`/product/${props.product.id}`}>
         <div  className='card'>
           <div className="image">
-            {props.product.exculsive && <span>Exclusive</span>}
+            {props.product.exclusive && <span>Exclusive</span>}
             <img className='main' src={props.product.images[0]} alt="" />
             <img src={props.product.images[1]} alt="" />
           </div>

@@ -1,191 +1,191 @@
 {
     "products" : [
-        {
-            "id"            : 1,
-            "ajio"          : "https://www.luxe.ajio.com/hunkemoller-arrow-logo-print-tank-top/p/410337796_blk?user=old",
-            "brand"         : "HUNKEMOLLER",
-            "title"         : "Arrow Logo Print Tank Top",
-            "images"        : [ "https://assets.ajio.com/medias/sys_master/root/20220727/21nu/62e072ecf997dd03e2fbbf1b/-1117Wx1400H-410337796-blk-MODEL.jpg" , "https://assets.ajio.com/medias/sys_master/root/20220727/nsJV/62e07919f997dd03e2fbe428/-1117Wx1400H-410337796-blk-MODEL2.jpg" , "https://assets.ajio.com/medias/sys_master/root/20220727/RPkc/62e041d7f997dd03e2f9dc09/-1117Wx1400H-410337796-blk-MODEL4.jpg" ],
-            "oldprice"      : 1795,
-            "price"         : 987,
-            "description"   : [ "Breathable mesh, active stretch" , "Machine wash", "82% polyamide, 18% elastane" ],
-            "category"      : "Top",
-            "gender"        : "Women",
-            "featured"      : true,
-            "trending"      : true,
-            "exculsive"     : true
-        },
-        {
-            "id"            : 2,
-            "ajio"          : "https://www.luxe.ajio.com/hunkemoller-crew-neck-top-with-taping/p/410307798_samb?user=old",
-            "brand"         : "HUNKEMOLLER",
-            "title"         : "Crew-Neck Top With Taping",
-            "images"        : [ "https://assets.ajio.com/medias/sys_master/root/20220727/zBPO/62e07b68aeb26921afa040e3/-1117Wx1400H-410307798-samb-MODEL.jpg" , "https://assets.ajio.com/medias/sys_master/root/20220727/wnn4/62e07725f997dd03e2fbd897/-1117Wx1400H-410307798-samb-MODEL3.jpg" , "https://assets.ajio.com/medias/sys_master/root/20220727/Gui2/62e0484daeb26921af9e8125/-1117Wx1400H-410307798-samb-MODEL2.jpg" ],
-            "oldprice"      : 2795,
-            "price"         : 2096,
-            "description"   : [ "Relaxed Fit" , "Machine wash", "95% polyester, 5% elastane" ],
-            "category"      : "Top",
-            "gender"        : "Women",
-            "featured"      : false,
-            "trending"      : true,
-            "exculsive"     : true
-        },
-        {
-            "id"            : 3,
-            "ajio"          : "https://www.luxe.ajio.com/hunkemoller-ribbed-tank-crop-top/p/410345936_pnkyrw?user=old",
-            "brand"         : "HUNKEMOLLER",
-            "title"         : "Ribbed Tank Crop Top",
-            "images"        : [ "https://assets.ajio.com/medias/sys_master/root/20221102/BCWA/63628a4af997ddfdbd51882e/-1117Wx1400H-410345936-pnkyrw-MODEL.jpg" , "https://assets.ajio.com/medias/sys_master/root/20221102/lPAd/636289d7aeb269659c6ba793/-1117Wx1400H-410345936-pnkyrw-MODEL2.jpg" , "https://assets.ajio.com/medias/sys_master/root/20221102/8ypn/636280e9aeb269659c6b7879/-1117Wx1400H-410345936-pnkyrw-MODEL3.jpg" ],
-            "oldprice"      : 1495,
-            "price"         : 822,
-            "description"   : [  "Machine wash", "98% cotton, 2% elastane" ],
-            "category"      : "Top",
-            "gender"        : "Women",
-            "featured"      : true,
-            "trending"      : false,
-            "exculsive"     : false
-        },
-        {
-            "id"            : 4,
-            "ajio"          : "https://www.luxe.ajio.com/hunkemoller-velour-camisole-with-lace-insert/p/410292404_qrtz?user=old",
-            "brand"         : "HUNKEMOLLER",
-            "title"         : "Velour Camisole With Lace Insert",
-            "images"        : [ "https://assets.ajio.com/medias/sys_master/root/20210622/lTEI/60d1fdb3f997ddb312e90bb1/-1117Wx1400H-410292404-qrtz-MODEL.jpg" , "https://assets.ajio.com/medias/sys_master/root/20210622/kTcE/60d20082f997ddb312e918ff/-1117Wx1400H-410292404-qrtz-MODEL2.jpg" , "https://assets.ajio.com/medias/sys_master/root/20210622/BZ66/60d1fbc3f997ddb312e901e0/-1117Wx1400H-410292404-qrtz-MODEL3.jpg" ],
-            "oldprice"      : 1795,
-            "price"         : 987,
-            "description"   : [ "Adjustable shoulder straps" , "Machine wash", "95% polyester, 5% elastane" ],
-            "category"      : "Top",
-            "gender"        : "Women",
-            "featured"      : false,
-            "trending"      : false,
-            "exculsive"     : false
-        },
-        {
-            "id"            : 5,
-            "ajio"          : "https://www.luxe.ajio.com/hunkemoller-velours-tube-top/p/410314553_blk?user=old",
-            "brand"         : "HUNKEMOLLER",
-            "title"         : "Velours Tube Top",
-            "images"        : [ "https://assets.ajio.com/medias/sys_master/root/20220727/gWo5/62e05e17f997dd03e2fb2797/-1117Wx1400H-410314553-blk-MODEL.jpg" , "https://assets.ajio.com/medias/sys_master/root/20220727/YD9r/62e06fa2aeb26921afa001bd/-1117Wx1400H-410314553-blk-MODEL2.jpg" , "https://assets.ajio.com/medias/sys_master/root/20220727/AZN7/62e040e2aeb26921af9e5e26/-1117Wx1400H-410314553-blk-MODEL3.jpg" ],
-            "price"         : 1695,
-            "description"   : [ "Relaxed Fit" , "Machine wash", "95% polyester, 5% elastane" ],
-            "category"      : "Top",
-            "gender"        : "Women",
-            "featured"      : false,
-            "trending"      : false,
-            "exculsive"     : false
-        },
-        {
-            "id"            : 6,
-            "ajio"          : "https://luxe.ajio.com/lacquer-embassy-cotton-shirt-with-flap-pockets/p/463897440_blue?user=old",
-            "brand"         : "LACQUER EMBASSY",
-            "title"         : "Cotton Shirt With Flap Pockets",
-            "images"        : [ 
-                                "https://assets.ajio.com/medias/sys_master/root/20220225/bUWp/6218eddff997dd03e2f0e40f/-1117Wx1400H-463897440-blue-MODEL.jpg" ,
-                                "https://assets.ajio.com/medias/sys_master/root/20220225/3Gpq/6218eddff997dd03e2f0e47c/-1117Wx1400H-463897440-blue-MODEL2.jpg" ,
-                                "https://assets.ajio.com/medias/sys_master/root/20220225/349v/6218eddff997dd03e2f0e431/-1117Wx1400H-463897440-blue-MODEL3.jpg"
-                              ],
-            "oldprice"      : 3450,
-            "price"         : 3105,
-            "description"   : [ "Tailored Fit" , "Dry clean", "Cotton satin" ],
-            "category"      : "Shirt",
-            "gender"        : "Men",
-            "featured"      : true,
-            "trending"      : false,
-            "exculsive"     : false
-        },
-        {
-            "id"            : 7,
-            "ajio"          : "https://luxe.ajio.com/all-saints-disorder-embroidered-shirt-with-patch-pocket/p/469306099_jetblack?user=",
-            "brand"         : "ALL SAINTS",
-            "title"         : "Disorder Embroidered Shirt With Patch Pocket",
-            "images"        : [ 
-                                "https://assets.ajio.com/medias/sys_master/root/20221109/eIxP/636b904ef997ddfdbd66714a/-1117Wx1400H-469306099-jetblack-MODEL.jpg" ,
-                                "https://assets.ajio.com/medias/sys_master/root/20221109/mSB2/636b9469aeb269659c80223b/-1117Wx1400H-469306099-jetblack-MODEL2.jpg" ,
-                                "https://assets.ajio.com/medias/sys_master/root/20221109/UaSt/636b9333aeb269659c800367/-1117Wx1400H-469306099-jetblack-MODEL5.jpg"
-                              ],
-            "price"         : 1999,
-            "description"   : [ "Regular Fit" , "Machine wash", "50% viscose, 50% Ecovero" ],
-            "category"      : "Shirt",
-            "gender"        : "Men",
-            "featured"      : false,
-            "trending"      : false,
-            "exculsive"     : false
-        },
-        {
-            "id"            : 8,
-            "ajio"          : "https://luxe.ajio.com/s-n-by-shantanu-and-nikhil-spread-collar-neck-classic-shirt-/p/465392783_black?user=old",
-            "brand"         : "S&N BY SHANTANU AND NIKHIL",
-            "title"         : "Spread Collar-Neck Classic Shirt",
-            "images"        : [ 
-                                "https://assets.ajio.com/medias/sys_master/root/20221206/oIjp/638e771bf997ddfdbdbd762d/-1117Wx1400H-465392783-black-MODEL.jpg" ,
-                                "https://assets.ajio.com/medias/sys_master/root/20221206/CC8T/638e771bf997ddfdbdbd766e/-1117Wx1400H-465392783-black-MODEL5.jpg" ,
-                                "https://assets.ajio.com/medias/sys_master/root/20221206/zzfy/638e771bf997ddfdbdbd766d/-1117Wx1400H-465392783-black-MODEL2.jpg"
-                              ],
-            "oldprice"      : 10500,
-            "price"         : 8925,
-            "description"   : [ "Slim Fit" , "Dry clean", "Poly Jersey, Cotton, Velvet, Faux leather" ],
-            "category"      : "Shirt",
-            "gender"        : "Men",
-            "featured"      : false,
-            "trending"      : true,
-            "exculsive"     : false
-        },
-        {
-            "id"            : 9,
-            "ajio"          : "https://luxe.ajio.com/hugo-boss-hooded-slim-fit-jacket-with-removable-padded-inner-bib/p/410299402_404?user=old",
-            "brand"         : "S&N BY SHANTANU AND NIKHIL",
-            "title"         : "Soft Yellow Crested Shirt",
-            "images"        : [ 
-                                "https://assets.ajio.com/medias/sys_master/root/20220617/LCiw/62ac3e53f997dd03e2860f0a/-1117Wx1400H-464460382-yellow-MODEL2.jpg" ,
-                                "https://assets.ajio.com/medias/sys_master/root/20220617/9Nze/62ac3e53f997dd03e2860f15/-1117Wx1400H-464460382-yellow-MODEL3.jpg" ,
-                                "https://assets.ajio.com/medias/sys_master/root/20220617/UlwP/62ac3e53f997dd03e2860f18/-1117Wx1400H-464460382-yellow-MODEL4.jpg"
-                              ],
-            "oldprice"      : 8500,
-            "price"         : 5100,
-            "description"   : [ "Slim Fit" , "Dry clean", "Cotton" ],
-            "category"      : "Shirt",
-            "gender"        : "Men",
-            "featured"      : true,
-            "trending"      : false,
-            "exculsive"     : false
-        },
-        {
-            "id"            : 10,
-            "ajio"          : "https://luxe.ajio.com/hugo-boss-printed-performance-stretch-slim-fit-twill-shirt/p/410327920_660?user=old",
-            "brand"         : "HUGO BOSS",
-            "title"         : "Printed Performance Stretch Slim Fit Twill Shirt",
-            "images"        : [ 
-                                "https://assets.ajio.com/medias/sys_master/root/20221008/Bd9m/63407b16f997ddfdbd0ebdec/-1117Wx1400H-410327920-660-MODEL.jpg" ,
-                                "https://assets.ajio.com/medias/sys_master/root/20221008/81o9/634072daf997ddfdbd0e7a30/-1117Wx1400H-410327920-660-MODEL3.jpg" ,
-                                "https://assets.ajio.com/medias/sys_master/root/20221008/cMeF/634071b7f997ddfdbd0e6f44/-1117Wx1400H-410327920-660-MODEL4.jpg"
-                              ],
-            "oldprice"      : 14000,
-            "price"         : 9800,
-            "description"   : [ "Slim Fit" , "Hand wash", "92% polyamide, 8% elastane" ],
-            "category"      : "Shirt",
-            "gender"        : "Men",
-            "featured"      : false,
-            "trending"      : true,
-            "exculsive"     : true
-        },
-        {
-            "id"            : 11,
-            "ajio"          : "https://luxe.ajio.com/hugo-boss-hooded-slim-fit-jacket-with-removable-padded-inner-bib/p/410299402_404?user=old",
-            "brand"         : "HUGO BOSS",
-            "title"         : "Hooded Slim Fit Jacket With Removable Padded Inner Bib",
-            "images"        : [ 
-                                "https://assets.ajio.com/medias/sys_master/root/20211125/TBfR/619fa6e1f997ddf8f11a5db3/-1117Wx1400H-410299402-404-MODEL.jpg" ,
-                                "https://assets.ajio.com/medias/sys_master/root/20211125/FSRZ/619fa666aeb2690110d82fc1/-1117Wx1400H-410299402-404-MODEL4.jpg" ,
-                                "https://assets.ajio.com/medias/sys_master/root/20211125/fNGZ/619fabfdaeb2690110d84994/-1117Wx1400H-410299402-404-MODEL5.jpg"
-                              ],
-            "oldprice"      : 69000,
-            "price"         : 41400,
-            "description"   : [ "Adjustable hood" , "Hand wash", "55% virgin wool, 41% polyester, 4% elastane" ],
-            "category"      : "Hoodie",
-            "gender"        : "Men",
-            "featured"      : false,
-            "trending"      : false,
-            "exculsive"     : true
-        }
+    {
+        "id"            : 1,
+        "ajio"          : "https://www.luxe.ajio.com/hunkemoller-arrow-logo-print-tank-top/p/410337796_blk?user=old",
+        "brand"         : "HUNKEMOLLER",
+        "title"         : "Arrow Logo Print Tank Top",
+        "images"        : [ "https://assets.ajio.com/medias/sys_master/root/20220727/21nu/62e072ecf997dd03e2fbbf1b/-1117Wx1400H-410337796-blk-MODEL.jpg" , "https://assets.ajio.com/medias/sys_master/root/20220727/nsJV/62e07919f997dd03e2fbe428/-1117Wx1400H-410337796-blk-MODEL2.jpg" , "https://assets.ajio.com/medias/sys_master/root/20220727/RPkc/62e041d7f997dd03e2f9dc09/-1117Wx1400H-410337796-blk-MODEL4.jpg" ],
+        "oldprice"      : 1795,
+        "price"         : 987,
+        "description"   : [ "Breathable mesh, active stretch" , "Machine wash", "82% polyamide, 18% elastane" ],
+        "category"      : "Top",
+        "gender"        : "Women",
+        "featured"      : true,
+        "trending"      : true,
+        "exculsive"     : true
+    },
+    {
+        "id"            : 2,
+        "ajio"          : "https://www.luxe.ajio.com/hunkemoller-crew-neck-top-with-taping/p/410307798_samb?user=old",
+        "brand"         : "HUNKEMOLLER",
+        "title"         : "Crew-Neck Top With Taping",
+        "images"        : [ "https://assets.ajio.com/medias/sys_master/root/20220727/zBPO/62e07b68aeb26921afa040e3/-1117Wx1400H-410307798-samb-MODEL.jpg" , "https://assets.ajio.com/medias/sys_master/root/20220727/wnn4/62e07725f997dd03e2fbd897/-1117Wx1400H-410307798-samb-MODEL3.jpg" , "https://assets.ajio.com/medias/sys_master/root/20220727/Gui2/62e0484daeb26921af9e8125/-1117Wx1400H-410307798-samb-MODEL2.jpg" ],
+        "oldprice"      : 2795,
+        "price"         : 2096,
+        "description"   : [ "Relaxed Fit" , "Machine wash", "95% polyester, 5% elastane" ],
+        "category"      : "Top",
+        "gender"        : "Women",
+        "featured"      : false,
+        "trending"      : true,
+        "exculsive"     : true
+    },
+    {
+        "id"            : 3,
+        "ajio"          : "https://www.luxe.ajio.com/hunkemoller-ribbed-tank-crop-top/p/410345936_pnkyrw?user=old",
+        "brand"         : "HUNKEMOLLER",
+        "title"         : "Ribbed Tank Crop Top",
+        "images"        : [ "https://assets.ajio.com/medias/sys_master/root/20221102/BCWA/63628a4af997ddfdbd51882e/-1117Wx1400H-410345936-pnkyrw-MODEL.jpg" , "https://assets.ajio.com/medias/sys_master/root/20221102/lPAd/636289d7aeb269659c6ba793/-1117Wx1400H-410345936-pnkyrw-MODEL2.jpg" , "https://assets.ajio.com/medias/sys_master/root/20221102/8ypn/636280e9aeb269659c6b7879/-1117Wx1400H-410345936-pnkyrw-MODEL3.jpg" ],
+        "oldprice"      : 1495,
+        "price"         : 822,
+        "description"   : [  "Machine wash", "98% cotton, 2% elastane" ],
+        "category"      : "Top",
+        "gender"        : "Women",
+        "featured"      : true,
+        "trending"      : false,
+        "exculsive"     : false
+    },
+    {
+        "id"            : 4,
+        "ajio"          : "https://www.luxe.ajio.com/hunkemoller-velour-camisole-with-lace-insert/p/410292404_qrtz?user=old",
+        "brand"         : "HUNKEMOLLER",
+        "title"         : "Velour Camisole With Lace Insert",
+        "images"        : [ "https://assets.ajio.com/medias/sys_master/root/20210622/lTEI/60d1fdb3f997ddb312e90bb1/-1117Wx1400H-410292404-qrtz-MODEL.jpg" , "https://assets.ajio.com/medias/sys_master/root/20210622/kTcE/60d20082f997ddb312e918ff/-1117Wx1400H-410292404-qrtz-MODEL2.jpg" , "https://assets.ajio.com/medias/sys_master/root/20210622/BZ66/60d1fbc3f997ddb312e901e0/-1117Wx1400H-410292404-qrtz-MODEL3.jpg" ],
+        "oldprice"      : 1795,
+        "price"         : 987,
+        "description"   : [ "Adjustable shoulder straps" , "Machine wash", "95% polyester, 5% elastane" ],
+        "category"      : "Top",
+        "gender"        : "Women",
+        "featured"      : false,
+        "trending"      : false,
+        "exculsive"     : false
+    },
+    {
+        "id"            : 5,
+        "ajio"          : "https://www.luxe.ajio.com/hunkemoller-velours-tube-top/p/410314553_blk?user=old",
+        "brand"         : "HUNKEMOLLER",
+        "title"         : "Velours Tube Top",
+        "images"        : [ "https://assets.ajio.com/medias/sys_master/root/20220727/gWo5/62e05e17f997dd03e2fb2797/-1117Wx1400H-410314553-blk-MODEL.jpg" , "https://assets.ajio.com/medias/sys_master/root/20220727/YD9r/62e06fa2aeb26921afa001bd/-1117Wx1400H-410314553-blk-MODEL2.jpg" , "https://assets.ajio.com/medias/sys_master/root/20220727/AZN7/62e040e2aeb26921af9e5e26/-1117Wx1400H-410314553-blk-MODEL3.jpg" ],
+        "price"         : 1695,
+        "description"   : [ "Relaxed Fit" , "Machine wash", "95% polyester, 5% elastane" ],
+        "category"      : "Top",
+        "gender"        : "Women",
+        "featured"      : false,
+        "trending"      : false,
+        "exculsive"     : false
+    },
+    {
+        "id"            : 6,
+        "ajio"          : "https://luxe.ajio.com/lacquer-embassy-cotton-shirt-with-flap-pockets/p/463897440_blue?user=old",
+        "brand"         : "LACQUER EMBASSY",
+        "title"         : "Cotton Shirt With Flap Pockets",
+        "images"        : [ 
+                            "https://assets.ajio.com/medias/sys_master/root/20220225/bUWp/6218eddff997dd03e2f0e40f/-1117Wx1400H-463897440-blue-MODEL.jpg" ,
+                            "https://assets.ajio.com/medias/sys_master/root/20220225/3Gpq/6218eddff997dd03e2f0e47c/-1117Wx1400H-463897440-blue-MODEL2.jpg" ,
+                            "https://assets.ajio.com/medias/sys_master/root/20220225/349v/6218eddff997dd03e2f0e431/-1117Wx1400H-463897440-blue-MODEL3.jpg"
+                          ],
+        "oldprice"      : 3450,
+        "price"         : 3105,
+        "description"   : [ "Tailored Fit" , "Dry clean", "Cotton satin" ],
+        "category"      : "Shirt",
+        "gender"        : "Men",
+        "featured"      : true,
+        "trending"      : false,
+        "exculsive"     : false
+    },
+    {
+        "id"            : 7,
+        "ajio"          : "https://luxe.ajio.com/all-saints-disorder-embroidered-shirt-with-patch-pocket/p/469306099_jetblack?user=",
+        "brand"         : "ALL SAINTS",
+        "title"         : "Disorder Embroidered Shirt With Patch Pocket",
+        "images"        : [ 
+                            "https://assets.ajio.com/medias/sys_master/root/20221109/eIxP/636b904ef997ddfdbd66714a/-1117Wx1400H-469306099-jetblack-MODEL.jpg" ,
+                            "https://assets.ajio.com/medias/sys_master/root/20221109/mSB2/636b9469aeb269659c80223b/-1117Wx1400H-469306099-jetblack-MODEL2.jpg" ,
+                            "https://assets.ajio.com/medias/sys_master/root/20221109/UaSt/636b9333aeb269659c800367/-1117Wx1400H-469306099-jetblack-MODEL5.jpg"
+                          ],
+        "price"         : 1999,
+        "description"   : [ "Regular Fit" , "Machine wash", "50% viscose, 50% Ecovero" ],
+        "category"      : "Shirt",
+        "gender"        : "Men",
+        "featured"      : false,
+        "trending"      : false,
+        "exculsive"     : false
+    },
+    {
+        "id"            : 8,
+        "ajio"          : "https://luxe.ajio.com/s-n-by-shantanu-and-nikhil-spread-collar-neck-classic-shirt-/p/465392783_black?user=old",
+        "brand"         : "S&N BY SHANTANU AND NIKHIL",
+        "title"         : "Spread Collar-Neck Classic Shirt",
+        "images"        : [ 
+                            "https://assets.ajio.com/medias/sys_master/root/20221206/oIjp/638e771bf997ddfdbdbd762d/-1117Wx1400H-465392783-black-MODEL.jpg" ,
+                            "https://assets.ajio.com/medias/sys_master/root/20221206/CC8T/638e771bf997ddfdbdbd766e/-1117Wx1400H-465392783-black-MODEL5.jpg" ,
+                            "https://assets.ajio.com/medias/sys_master/root/20221206/zzfy/638e771bf997ddfdbdbd766d/-1117Wx1400H-465392783-black-MODEL2.jpg"
+                          ],
+        "oldprice"      : 10500,
+        "price"         : 8925,
+        "description"   : [ "Slim Fit" , "Dry clean", "Poly Jersey, Cotton, Velvet, Faux leather" ],
+        "category"      : "Shirt",
+        "gender"        : "Men",
+        "featured"      : false,
+        "trending"      : true,
+        "exculsive"     : false
+    },
+    {
+        "id"            : 9,
+        "ajio"          : "https://luxe.ajio.com/hugo-boss-hooded-slim-fit-jacket-with-removable-padded-inner-bib/p/410299402_404?user=old",
+        "brand"         : "S&N BY SHANTANU AND NIKHIL",
+        "title"         : "Soft Yellow Crested Shirt",
+        "images"        : [ 
+                            "https://assets.ajio.com/medias/sys_master/root/20220617/LCiw/62ac3e53f997dd03e2860f0a/-1117Wx1400H-464460382-yellow-MODEL2.jpg" ,
+                            "https://assets.ajio.com/medias/sys_master/root/20220617/9Nze/62ac3e53f997dd03e2860f15/-1117Wx1400H-464460382-yellow-MODEL3.jpg" ,
+                            "https://assets.ajio.com/medias/sys_master/root/20220617/UlwP/62ac3e53f997dd03e2860f18/-1117Wx1400H-464460382-yellow-MODEL4.jpg"
+                          ],
+        "oldprice"      : 8500,
+        "price"         : 5100,
+        "description"   : [ "Slim Fit" , "Dry clean", "Cotton" ],
+        "category"      : "Shirt",
+        "gender"        : "Men",
+        "featured"      : true,
+        "trending"      : false,
+        "exculsive"     : false
+    },
+    {
+        "id"            : 10,
+        "ajio"          : "https://luxe.ajio.com/hugo-boss-printed-performance-stretch-slim-fit-twill-shirt/p/410327920_660?user=old",
+        "brand"         : "HUGO BOSS",
+        "title"         : "Printed Performance Stretch Slim Fit Twill Shirt",
+        "images"        : [ 
+                            "https://assets.ajio.com/medias/sys_master/root/20221008/Bd9m/63407b16f997ddfdbd0ebdec/-1117Wx1400H-410327920-660-MODEL.jpg" ,
+                            "https://assets.ajio.com/medias/sys_master/root/20221008/81o9/634072daf997ddfdbd0e7a30/-1117Wx1400H-410327920-660-MODEL3.jpg" ,
+                            "https://assets.ajio.com/medias/sys_master/root/20221008/cMeF/634071b7f997ddfdbd0e6f44/-1117Wx1400H-410327920-660-MODEL4.jpg"
+                          ],
+        "oldprice"      : 14000,
+        "price"         : 9800,
+        "description"   : [ "Slim Fit" , "Hand wash", "92% polyamide, 8% elastane" ],
+        "category"      : "Shirt",
+        "gender"        : "Men",
+        "featured"      : false,
+        "trending"      : true,
+        "exculsive"     : true
+    },
+    {
+        "id"            : 11,
+        "ajio"          : "https://luxe.ajio.com/hugo-boss-hooded-slim-fit-jacket-with-removable-padded-inner-bib/p/410299402_404?user=old",
+        "brand"         : "HUGO BOSS",
+        "title"         : "Hooded Slim Fit Jacket With Removable Padded Inner Bib",
+        "images"        : [ 
+                            "https://assets.ajio.com/medias/sys_master/root/20211125/TBfR/619fa6e1f997ddf8f11a5db3/-1117Wx1400H-410299402-404-MODEL.jpg" ,
+                            "https://assets.ajio.com/medias/sys_master/root/20211125/FSRZ/619fa666aeb2690110d82fc1/-1117Wx1400H-410299402-404-MODEL4.jpg" ,
+                            "https://assets.ajio.com/medias/sys_master/root/20211125/fNGZ/619fabfdaeb2690110d84994/-1117Wx1400H-410299402-404-MODEL5.jpg"
+                          ],
+        "oldprice"      : 69000,
+        "price"         : 41400,
+        "description"   : [ "Adjustable hood" , "Hand wash", "55% virgin wool, 41% polyester, 4% elastane" ],
+        "category"      : "Hoodie",
+        "gender"        : "Men",
+        "featured"      : false,
+        "trending"      : false,
+        "exculsive"     : true
+    }
     ]
 }

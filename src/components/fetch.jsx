@@ -12,7 +12,7 @@ async function dofetch(){
   try{
     const responce = await axios.get(url)
     setdata(responce.data)
-    console.log(responce.data);
+    // console.log(responce.data);
   }
   catch(error){
       console.log(error.message)

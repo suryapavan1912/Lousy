@@ -24,6 +24,10 @@ const [data] = useFetch()
                         <p className="oldprice">{item.oldprice && <span>₹{item.oldprice}</span>}</p> 
                         <p>{item.oldprice && <span className='discount'>{Math.round(100*((item.oldprice-item.price)/item.oldprice))}% off</span>}</p>
                     </div>
+                    <div className="size">
+                        <p>Size:S</p>
+                        <p>Qty:1</p>
+                    </div>
                     
                 </div>
                 <div className='del'>

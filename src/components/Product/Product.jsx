@@ -14,7 +14,7 @@ const [size,setsize] = useState(null)
 const {id} = useParams();
 const [image,setimage] = useState(0);
 const [quantity,setquantity]  = useState(0);
-const [data] = useFetch('/'+id);
+const [data] = useFetch('/product/'+id);
 
   return (
     <div>
@@ -22,7 +22,7 @@ const [data] = useFetch('/'+id);
     <div className='product'>
       <div className="left">
         <div className="array">
-          {data.images.map((img,id) => <img src={img} key={id} alt=""  onClick={()=>setimage(id)}/>)}
+          {data.images?.map((img,id) => <img src={img} key={id} alt=""  onClick={()=>setimage(id)}/>)}
         </div>
         <div className="img">
           <img src={data.images[image]}  alt="" />
@@ -42,7 +42,7 @@ const [data] = useFetch('/'+id);
           <div className='size'>
             {sizetext}
             <div>
-              {varient.map((type,id)=> <button key={id} className={type === size && 'active'} onClick={(e)=>{setsizetext(description[id]);setsize(varient[id]);}}>{type}</button>)}
+              {varient.map((type,id)=> <button key={id} className={type === size ? 'active' : ''} onClick={(e)=>{setsizetext(description[id]);setsize(varient[id]);}}>{type}</button>)}
             </div>
           </div>
           <div className="count">

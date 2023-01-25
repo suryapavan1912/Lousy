@@ -14,7 +14,7 @@ const [size,setsize] = useState(null)
 const {id} = useParams();
 const [image,setimage] = useState(0);
 const [quantity,setquantity]  = useState(0);
-const [data] = useFetch('/product/'+id);
+const [data] = useFetch('/products/'+id);
 
   return (
     <div>
@@ -37,7 +37,7 @@ const [data] = useFetch('/product/'+id);
           <div className="price">
             <p className='new'>₹{data.price}</p>
             {data.oldprice && <p className='old'>MRP <span>₹{data.oldprice}</span></p>}
-            <p>({data.oldprice && <span className='discount'>{Math.round(100*((data.oldprice-data.price)/data.oldprice))}% OFF</span>})</p>
+            <p>{data.oldprice && <span className='discount'>({Math.round(100*((data.oldprice-data.price)/data.oldprice))}% OFF)</span>}</p>
           </div>
           <div className='size'>
             {sizetext}

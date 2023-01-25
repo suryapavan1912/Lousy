@@ -3,7 +3,7 @@ import Card from '../Home/Card/Card'
 import useFetch from '../fetch'
 function Filter(props) {
 
-  const [data] = useFetch(props.category)
+  const [data] = useFetch('/Category/'+props.category)
   
     
   return (
@@ -14,5 +14,3 @@ function Filter(props) {
 }
 
 export default Filter
-
-

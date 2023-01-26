@@ -4,7 +4,7 @@ import './Card.scss'
 
 function Card(props) {
   return (
-      <NavLink target="_blank" to={`/products/${props.product.id}`}>
+      <NavLink target="_blank" to={`/product/${props.product.id}`}>
         <div  className='card'>
           <div className="image">
             {props.product.exclusive && <span>Exclusive</span>}

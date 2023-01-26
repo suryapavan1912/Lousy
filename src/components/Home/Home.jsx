@@ -9,9 +9,9 @@ function Home() {
   return (
     <div>
     <Slider />
-    <Featuredproducts type="Featured" />
+    <Featuredproducts type="featured" />
     <Gridbox />
-    <Featuredproducts type="Trending" />
+    <Featuredproducts type="trending" />
     <Contact />
     </div>
   )

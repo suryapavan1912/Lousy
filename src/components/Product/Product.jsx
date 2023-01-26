@@ -14,7 +14,7 @@ const [size,setsize] = useState(null)
 const {id} = useParams();
 const [image,setimage] = useState(0);
 const [quantity,setquantity]  = useState(0);
-const [data] = useFetch('/products/'+id);
+const [data] = useFetch('/product/'+id);
 
   return (
     <div>

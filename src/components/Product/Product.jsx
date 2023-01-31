@@ -12,6 +12,7 @@ const [sizetext, setsizetext] = useState('Select Size');
 const [size,setsize] = useState(null)
 
 const {id} = useParams();
+console.log(id);
 const [image,setimage] = useState(0);
 const [quantity,setquantity]  = useState(0);
 const [data] = useFetch('/product/'+id);

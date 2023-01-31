@@ -19,9 +19,9 @@ function Navbar() {
           <div className='arrows'>
             <p>USD</p><ChevronDown />
           </div>
-          <NavLink to='/products?gender=Men'>Men</NavLink>
-          <NavLink to='/products?gender=Women'>Women</NavLink>
-          <NavLink to='/products?gender=Children'>Children</NavLink>
+          <NavLink to='/products?type=clothing&gender=Men'>Men</NavLink>
+          <NavLink to='/products?type=clothing&gender=Women'>Women</NavLink>
+          <NavLink to='/products?type=clothing&gender=Children'>Children</NavLink>
           <NavLink to='/products?type=Accessories'>Accessories</NavLink>
         </div>
         <div className='center'>

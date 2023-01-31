@@ -17,7 +17,13 @@ const [data] = useFetch(`/products?${props.type}=true`)
             Officiis voluptas.</p>
         </div>
         <div className="bottom">
-            {data.filter((item,id)=> item.featured===true).filter((item,id)=> id<4).map((item,id) => {return(<Card product={item} key={id} />)})}
+            {data
+
+              .map(value => ({ value, sort: Math.random() }))
+              .sort((a, b) => a.sort - b.sort)
+              .map(({ value }) => value)
+              .filter((item,id)=> id<4)
+              .map((item,id) => {return(<Card product={item} key={id} />)})}
         </div>
     </div>}
     </div>

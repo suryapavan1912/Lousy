@@ -7,20 +7,31 @@ import { useSearchParams } from 'react-router-dom'
 
 function Products() {
 
-const banner = ["https://images.pexels.com/photos/7081105/pexels-photo-7081105.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+const banner = [
+                "https://images.pexels.com/photos/10330448/pexels-photo-10330448.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 "https://images.pexels.com/photos/13255965/pexels-photo-13255965.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 "https://images.pexels.com/photos/5911467/pexels-photo-5911467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
               ]
 
 // fetch
 const [selectedSubCats, setSelectedSubCats] = useState(null);
+const [order,setorder] = useState(0)
 const [searchParams] = useSearchParams();
 
 useEffect(() => {
+
   let filter = []
   for (const entry of searchParams.entries()) {
     filter.push(entry)
   setSelectedSubCats(filter)}
+
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    for (var i = 0; i < checkboxes.length; i++) {
+      checkboxes[i].checked = false;}
+    var radio = document.querySelectorAll('input[type="radio"]');
+    for (i = 0; i < radio.length; i++) {
+      radio[i].checked = false;}
+    
 }, [searchParams]);
 
 function handleChange(e){
@@ -31,7 +42,9 @@ function handleChange(e){
 let query = ''
 for(let x=0;x<selectedSubCats?.length;x+=1){
   query = query + selectedSubCats[x][0] + '=' + selectedSubCats[x][1] + '&' }
-console.log(query);
+
+
+
 const [data] = useFetch(`/products?${query}`)
 
 //price range
@@ -39,6 +52,12 @@ const [maxprice,setmaxprice] = useState(50000)
 
 // price sorting
 
+if (order === 1){
+  data.sort((a,b)=> a.price- b.price )
+}
+else if (order === 2) {
+data.sort((a,b)=> b.price- a.price )
+}
 
 //set categories
 let sorts
@@ -62,16 +81,16 @@ else{sorts = ["Shirts","T-shirts","Tops","Jumpsuits","Jackets","Jeans","Trousers
         </div>
         <div className="filteritem">
           <h1>Sort by</h1>
-          <div className="inputitem"><input type="radio" name="radio" id="4" /><label htmlFor="4" >Price(Lowest first)</label></div>
-          <div className="inputitem"><input type="radio" name="radio" id="5" /><label htmlFor="5" >Price(Highest first)</label></div>
+          <div className="inputitem"><input type="radio" name="radio" id="4" onChange={()=>setorder(1)}  /><label htmlFor="4" >Price(Lowest first)</label></div>
+          <div className="inputitem"><input type="radio" name="radio" id="5" onChange={()=>setorder(2)} /><label htmlFor="5" >Price(Highest first)</label></div>
         </div>
       </div>
 
       <div className="right">
         <div><img className='catimg' src={banner[1]} alt="" /></div>
         <div className='contain'>
-            {data
-            .filter(item => maxprice>item.price)
+            {
+            data?.filter(item => maxprice>item.price)
             .map((item,id) => {return(<Card product={item} key={id} />)})
             }
         </div>

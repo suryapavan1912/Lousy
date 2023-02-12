@@ -18,11 +18,7 @@ const [data] = useFetch(`/products?${props.type}=true`)
         </div>
         <div className="bottom">
             {data
-
-              .map(value => ({ value, sort: Math.random() }))
-              .sort((a, b) => a.sort - b.sort)
-              .map(({ value }) => value)
-              .filter((item,id)=> id<4)
+              .filter((item,id)=> id<4 )
               .map((item,id) => {return(<Card product={item} key={id} />)})}
         </div>
     </div>}

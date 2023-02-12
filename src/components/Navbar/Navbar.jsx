@@ -1,15 +1,20 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { ChevronDown, Heart, Search , ShoppingCart , User } from 'react-feather';
 import './Navbar.scss'
 import { useState } from 'react';
 import Cart from '../Cart/Cart';
+import { auth } from '../../firebase';
+import Signin from '../SignIn/Signin';
+
 function Navbar() {
 
   const [cart,setcart] = useState(false)
+  const navigate = useNavigate()
 
   return (
       <>
+      <Signin />
       <div className='nav'>
         <div className='left'>
           <div className='arrows'>
@@ -31,10 +36,15 @@ function Navbar() {
           <NavLink to='/'>Home</NavLink>
           <NavLink to='/'>About</NavLink>
           <NavLink to='/'>Contact</NavLink>
-          <NavLink to='/'>stores</NavLink>
+          <NavLink to='/'>Stores</NavLink>
           <div className='icons'>
             <Search />
-            <User />
+            <div className='signout'>
+              <User />
+              <div className="dropdown">
+                <p onClick={()=>{auth.signOut()}}>Sign out</p>
+              </div>
+            </div>
             <Heart />
             <div className='divcon'>
               <ShoppingCart onClick={()=>{setcart(!cart)}}/>

@@ -1,9 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { AlertCircle } from 'react-feather'
 import { auth } from '../../firebase'
+import { useDispatch } from 'react-redux';
 import './Signin.scss'
+import { Add, Remove } from '../../features/counter/counterSlice';
 
 function Signin() {
+
+  const dispatch = useDispatch()
+
     const [login,setlogin] = useState(true)
     const [error,seterror] = useState(null)
     const [newuser,setnewuser] = useState(false)
@@ -14,9 +19,11 @@ function Signin() {
     useEffect(()=>{
     auth.onAuthStateChanged(user => {
     if (user) {
-      setlogin(true)
+      setlogin(true);
+      dispatch(Add({ uid : user.uid , email: user.email }))
     } else {
-      setlogin(false)
+      setlogin(false);
+      dispatch(Remove())
     }
     });
     },[login]);

@@ -40,12 +40,14 @@ function handleChange(e){
   setSelectedSubCats(isChecked ? [...selectedSubCats,['category', value]] : selectedSubCats.filter((item) => item[1] !== value))}
 
 let query = ''
+let query_pass = false
 for(let x=0;x<selectedSubCats?.length;x+=1){
+  query_pass = true
   query = query + selectedSubCats[x][0] + '=' + selectedSubCats[x][1] + '&' }
 
 
 
-const [data] = useFetch(`/products?${query}`)
+const [data] = useFetch(query_pass && `/products?${query}`)
 
 //price range
 const [maxprice,setmaxprice] = useState(50000)

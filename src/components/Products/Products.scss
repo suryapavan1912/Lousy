@@ -1,12 +1,14 @@
 .products{
     display: flex;
     margin: 30px 50px;
+    flex-wrap: wrap;
+    
 
     .left{
         flex: 1;
         position: sticky;
         height: 100%;
-        top: 66px;
+        top: 66px;  
         display: flex;
         flex-direction: column;
         gap: 35px;

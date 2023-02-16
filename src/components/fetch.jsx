@@ -20,7 +20,6 @@ async function dofetch(){
     
   }
   catch(error){
-      console.log(error.message)
   }
 } 
   dofetch()

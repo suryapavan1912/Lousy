@@ -4,18 +4,30 @@ import './Product.scss'
 import { ChevronDown, Heart, ShoppingBag } from 'react-feather'
 import useFetch from '../fetch'
 import { useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { userr } from '../../features/counter/counterSlice'
+import axios from '../axios'
 
 function Product() {
+const user = useSelector(userr)
 const varient = ['XS','S','M','L','XL'];
 const description = [<p>Extra Small <span>(XS)</span></p>,<p>Small <span>(S)</span></p>,<p>Medium <span>(M)</span></p>,<p>Large <span>(L)</span></p>,<p>Extra Large <span>(XL)</span></p>];
 const [sizetext, setsizetext] = useState('Select Size');
 const [size,setsize] = useState(null)
 
 const {id} = useParams();
-console.log(id);
 const [image,setimage] = useState(0);
 const [quantity,setquantity]  = useState(0);
 const [data] = useFetch('/product/'+id);
+
+async function Addedtocart(){
+  try{
+    await axios.post('/user',{id : user.id , product : id});
+    }
+    catch(error) {
+      console.log(error);
+    }
+}
 
   return (
     <div>
@@ -51,7 +63,7 @@ const [data] = useFetch('/product/'+id);
             <p>{quantity}</p>
             <button onClick={()=>{setquantity(pre=>pre+1)}} >+</button>
           </div>
-          <div className="cart">
+          <div className="cart" onClick={Addedtocart}>
           <ShoppingBag /><p>ADD TO CART</p>
           </div>
           <div className="wishlist">

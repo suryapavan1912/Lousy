@@ -3,17 +3,20 @@ import { Trash2 } from 'react-feather'
 import './Cart.scss'
 import useFetch from '../fetch'
 import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { userr } from '../../features/counter/counterSlice'
 
 function Cart() {
 
-const [data] = useFetch('/products')
-
+const user = useSelector(userr)
+const [data] = useFetch('/user?userid='+ user.id)
+console.log(data);
 
   return ( <>{ data &&
     <div className="maincart">
-        <h1>Products in your cart</h1>
+        {data.length>0?<h1>Products in your cart</h1>:<div className='empty'><h2>Your Bag Is Empty</h2><h2>Start Filling It Up!</h2></div>}
 
-            {data.map((item,id)=>{return(
+            {data?.map((item,id)=>{return(
                 <div className="items" key={id}>
                 <div className='img'>
                     <NavLink target="_blank" to={`/product/${item.id}`}><img src={item.images[0]} alt="" /></NavLink>
@@ -32,18 +35,18 @@ const [data] = useFetch('/products')
                     </div>
                     
                 </div>
-                <div className='del'>
+                {/* <div className='del'>
                     <Trash2 />
-                </div>
+                </div> */}
                 </div>
             )})}
-
-        <div className="total">
+        {data.length>0?<><div className="total">
             <p>SUBTOTAL</p>
-            <p>${data[0].price}</p>
+            <p>₹9999</p>
         </div>
-        <button className='checkout'>PROCEED TO CHECKOUT</button>
-        <p className="reset">Reset Cart</p>
+        <button className='checkout'>PROCEED TO CART</button></>:null}
+        {/* <p className="reset">Reset Cart</p> */}
+        <p className='reset'>Free Shipping & Returns | 100% Handpicked | Assured Quality</p>
     </div>}
     </>
   )

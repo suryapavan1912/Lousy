@@ -4,6 +4,7 @@ import { auth } from '../../firebase'
 import { useDispatch } from 'react-redux';
 import './Signin.scss'
 import { Add, Remove } from '../../features/counter/counterSlice';
+import axios from '../axios';
 
 function Signin() {
 
@@ -13,14 +14,24 @@ function Signin() {
     const [error,seterror] = useState(null)
     const [newuser,setnewuser] = useState(false)
     const user = useRef(null)
+    const name = useRef(null)
     const password = useRef(null)
     const passwordc = useRef(null)
-  
+
+    async function Newuser(id,email,name){
+      try{
+        await axios.post('/createuser',{id,email,name});
+        }
+        catch(error) {
+          console.log(error);
+        }
+      }
+
     useEffect(()=>{
     auth.onAuthStateChanged(user => {
     if (user) {
       setlogin(true);
-      dispatch(Add({ uid : user.uid , email: user.email }))
+      dispatch(Add({ id : user.uid , email: user.email }))
     } else {
       setlogin(false);
       dispatch(Remove())
@@ -28,40 +39,43 @@ function Signin() {
     });
     },[login]);
     
-    function Signup(event){
+async function Signup(event){
       event.preventDefault()
       if(password.current.value === passwordc.current.value){
-      auth.createUserWithEmailAndPassword(user.current.value,password.current.value)
-      .then((userCredential) => {
+        try{
+        const newuser = await auth.createUserWithEmailAndPassword(user.current.value,password.current.value)
+        const uid = newuser.user._delegate.uid
         setlogin(true);
-        seterror(null)
-      })
-      .catch((err) => {
-        if(err.message === 'Firebase: The email address is badly formatted. (auth/invalid-email).'){
-          seterror('The email is badly formatted')
+        seterror(null);
+        Newuser(uid,user.current.value,name.current.value);
         }
-        else if(err.message === 'Firebase: Password should be at least 6 characters (auth/weak-password).'){
-          seterror('Password should be at least 6 characters')
-        }
-        else if(err.message === 'Firebase: The email address is already in use by another account. (auth/email-already-in-use).'){
-          seterror('The email is already in use');
-        }
-        else{
-          seterror(null)
-        }
-      })}
+        catch(err){
+          if(err.message === 'Firebase: The email address is badly formatted. (auth/invalid-email).'){
+            seterror('The email is badly formatted')
+          }
+          else if(err.message === 'Firebase: Password should be at least 6 characters (auth/weak-password).'){
+            seterror('Password should be at least 6 characters')
+          }
+          else if(err.message === 'Firebase: The email address is already in use by another account. (auth/email-already-in-use).'){
+            seterror('The email is already in use');
+          }
+          else{
+            seterror(null)
+          }
+        }}
       else{
         seterror("Passwords didn't match. Try again.")
       }
     }
     
-    function Login(event){
+async function Login(event){
       event.preventDefault()
-      auth.signInWithEmailAndPassword(user.current.value,password.current.value)
-      .then((userCredential) => {
-        setlogin(true);seterror(null)
-      })
-      .catch((err) => {
+      try{
+      await auth.signInWithEmailAndPassword(user.current.value,password.current.value);
+      setlogin(true);
+      seterror(null);
+      }
+      catch (err) {
         if(err.message === 'Firebase: The email address is badly formatted. (auth/invalid-email).'){
           seterror('The email address is badly formatted')
         }
@@ -74,8 +88,7 @@ function Signin() {
         else{
           seterror(null)
         }
-        console.log(error);
-      });
+      }
     }
     
   return (
@@ -87,7 +100,8 @@ function Signin() {
         {error&&<div className='error'><AlertCircle/><h4>{error}</h4></div>}
         <h2>Email</h2>
         <input type='email' placeholder='Type your email' autoComplete="email" ref={user} required/>
-        <input type='text' autoComplete="username" hidden/>
+        <h2>Username</h2>
+        <input type='text' autoComplete="username" placeholder='Type your email' ref={name} required/>
 
         <h2>Password</h2>
         <input type='password' placeholder='Set a password' autoComplete="new-password" ref={password} required/>

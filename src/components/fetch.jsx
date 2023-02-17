@@ -5,27 +5,39 @@ import { useEffect, useState } from "react";
 function useFetch(url){
 
 const [data,setdata] = useState(null)
+const [error,seterror] = useState(false)
+const [load,setload] = useState(true)
+
 
 useEffect(()=>{
+  // const responce = axios.get(url).then(res=> console.log)
 
 async function dofetch(){
   try{
+    // console.log(url,'URL')
     const responce = await axios.get(url)
     if(responce.data){
     setdata(responce.data)
+    seterror(false);
+    setload(false)
     }
     else{
-      throw Error('404 Not found')
+      console.log('errorr')
     }
     
   }
   catch(error){
+    // setdata(null);
+    console.log(error)
+    setload(false);
+    seterror(true)
   }
 } 
-  dofetch()
+  url && dofetch()
+  
 },[url])
 
-    return [data]
+  return [data,error,load]
 }
 
 export default useFetch;

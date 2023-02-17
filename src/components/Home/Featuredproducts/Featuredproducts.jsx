@@ -5,10 +5,15 @@ import useFetch from '../../fetch'
 
 function Featuredproducts(props) {
 
-const [data] = useFetch(`/products?${props.type}=true`)
+const [data,error,load] = useFetch(`/products?${props.type}=true`)
 
   return (
     <div>
+
+    {load && <div className="loading"><p>loading</p></div>}
+
+    {error && <div className="error"><p>Network Error. Please Try Reloading The Page.</p></div>}
+
     { data && 
     <div className='featuredproducts'>
         <div className='top'>

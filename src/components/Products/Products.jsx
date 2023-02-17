@@ -47,7 +47,7 @@ for(let x=0;x<selectedSubCats?.length;x+=1){
 
 
 
-const [data] = useFetch(query_pass && `/products?${query}`)
+const [data,error,load] = useFetch(query_pass && `/products?${query}`)
 
 //price range
 const [maxprice,setmaxprice] = useState(50000)
@@ -70,6 +70,12 @@ else if(query.includes('Accessories')){ sorts = ["Watches","Ties","Belts","Shoes
 else{sorts = ["Shirts","T-shirts","Tops","Jumpsuits","Jackets","Jeans","Trousers","Skirts"]}
 
   return (
+    <>
+    {load && <div className="loading"><p>loading</p></div>}
+    
+    {error && <div className="error"><p>Network Error. Please Try Reloading The Page.</p></div>}
+    
+    {
     data &&
     <div className="products">
       <div className="left">
@@ -98,6 +104,8 @@ else{sorts = ["Shirts","T-shirts","Tops","Jumpsuits","Jackets","Jeans","Trousers
         </div>
       </div>
     </div>
+    }
+    </>
   )
 }
 

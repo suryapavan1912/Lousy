@@ -9,10 +9,18 @@ import { userr } from '../../features/counter/counterSlice'
 function Cart() {
 
 const user = useSelector(userr)
-const [data] = useFetch('/user?userid='+ user.id)
-console.log(data);
+const [data,error,load] = useFetch('/user?userid='+ user.id)
 
-  return ( <>{ data &&
+function Deleteitem(item) {
+    console.log(item.id);
+}
+
+  return ( <>
+    {load && <div className="loading"><p>loading</p></div>}
+    
+    {error && <div className="error"><p>Network Error. Please Try Reloading The Page.</p></div>}
+
+    { data &&
     <div className="maincart">
         {data.length>0?<h1>Products in your cart</h1>:<div className='empty'><h2>Your Bag Is Empty</h2><h2>Start Filling It Up!</h2></div>}
 
@@ -35,16 +43,16 @@ console.log(data);
                     </div>
                     
                 </div>
-                {/* <div className='del'>
+                <div className='del' onClick={()=>Deleteitem(item)}>
                     <Trash2 />
-                </div> */}
+                </div>
                 </div>
             )})}
         {data.length>0?<><div className="total">
             <p>SUBTOTAL</p>
             <p>₹9999</p>
         </div>
-        <button className='checkout'>PROCEED TO CART</button></>:null}
+        <button className='checkout'>PROCEED TO CHECKOUT</button></>:null}
         {/* <p className="reset">Reset Cart</p> */}
         <p className='reset'>Free Shipping & Returns | 100% Handpicked | Assured Quality</p>
     </div>}

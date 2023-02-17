@@ -18,7 +18,7 @@ const [size,setsize] = useState(null)
 const {id} = useParams();
 const [image,setimage] = useState(0);
 const [quantity,setquantity]  = useState(0);
-const [data] = useFetch('/product/'+id);
+const [data,error,load] = useFetch('/product/'+id);
 
 async function Addedtocart(){
   try{
@@ -31,6 +31,10 @@ async function Addedtocart(){
 
   return (
     <div>
+    {load && <div className="loading"><p>loading</p></div>}
+    
+    {error && <div className="error"><p>Network Error. Please Try Reloading The Page.</p></div>}
+    
     { data && 
     <div className='product'>
       <div className="left">

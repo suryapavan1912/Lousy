@@ -101,7 +101,7 @@ async function Login(event){
         <h2>Email</h2>
         <input type='email' placeholder='Type your email' autoComplete="email" ref={user} required/>
         <h2>Username</h2>
-        <input type='text' autoComplete="username" placeholder='Type your email' ref={name} required/>
+        <input type='text' autoComplete="username" placeholder='Type your name' ref={name} required/>
 
         <h2>Password</h2>
         <input type='password' placeholder='Set a password' autoComplete="new-password" ref={password} required/>

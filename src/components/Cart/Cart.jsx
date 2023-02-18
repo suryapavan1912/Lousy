@@ -1,63 +1,85 @@
-import React from 'react'
-import { Trash2 } from 'react-feather'
-import './Cart.scss'
-import useFetch from '../fetch'
-import { NavLink } from 'react-router-dom'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { userr } from '../../features/counter/counterSlice'
+import CartCard from '../CartCard/CartCard';
+import './Cart.scss'
+import { NavLink } from 'react-router-dom'
 
-function Cart() {
+function cart() {
+    const [charge,setcharge] = useState(false)
+    const userdata = useSelector(userr);
+    let quantity = 0
+    let bagtotal = 0
+    let ordertotal = 0
 
-const user = useSelector(userr)
-const [data,error,load] = useFetch('/user?userid='+ user.id)
+    userdata?.cart.forEach(item =>{
+        item.varient?.forEach(varient =>{
+          quantity += varient.quantity
+          bagtotal += item.info.oldprice*varient.quantity
+          ordertotal += item.info.price*varient.quantity
+        })})
 
-function Deleteitem(item) {
-    console.log(item.id);
-}
-
-  return ( <>
-    {load && <div className="loading"><p>loading</p></div>}
     
-    {error && <div className="error"><p>Network Error. Please Try Reloading The Page.</p></div>}
 
-    { data &&
-    <div className="maincart">
-        {data.length>0?<h1>Products in your cart</h1>:<div className='empty'><h2>Your Bag Is Empty</h2><h2>Start Filling It Up!</h2></div>}
-
-            {data?.map((item,id)=>{return(
-                <div className="items" key={id}>
-                <div className='img'>
-                    <NavLink target="_blank" to={`/product/${item.id}`}><img src={item.images[0]} alt="" /></NavLink>
-                </div>
-                <div className='info'>
-                    <NavLink target="_blank" to={`/product/${item.id}`}><p className='brand'>{item.brand}</p></NavLink>
-                    <NavLink target="_blank" to={`/product/${item.id}`}><p className='title'>{item.title}</p></NavLink>
-                    <div className="flex">
-                        <p className='price'>₹{item.price}</p>
-                        <p className="oldprice">{item.oldprice && <span>₹{item.oldprice}</span>}</p> 
-                        <p>{item.oldprice && <span className='discount'>{Math.round(100*((item.oldprice-item.price)/item.oldprice))}% off</span>}</p>
+  return (
+        ordertotal?
+        <>
+        {charge &&
+        <div className="charge">
+            <div className="box">
+                <p className="heading">Convenience Fee</p>
+                <p className="sub">Delivery Fee</p>
+                <p className="about">We charge a delivery fee on orders below 1999 to cover our shipping costs</p>
+                <p className="non">Convenience Fee is non-refundable in case you choose to return the order</p>
+                <p className="okay" onClick={()=>{setcharge(false)}}>Okay</p>
+            </div>
+        </div>}
+        <div className='cart'>
+                <div className="left">
+                    <div className="heading">
+                        <p>My Bag <span>({quantity} items)</span></p>
+                        <NavLink to='/cart'>+  <span>Add from Wishlist</span></NavLink>
                     </div>
-                    <div className="size">
-                        <p>Size:S</p>
-                        <p>Qty:1</p>
+                    {userdata?.cart.map((item,id) => { return(
+                        <CartCard data={item} key={id}/>
+                    )})}
+                </div>
+                <div className="right">
+                    <div className="heading">Order details</div>
+                    <div className="orders">
+                        <p>Bag total</p>
+                        <p>₹{bagtotal}</p>
                     </div>
-                    
+                    <div className="orders">
+                        <p>Bag Savings</p>
+                        <p>-₹{bagtotal-ordertotal}</p>
+                    </div>
+                    <div className="orders">
+                        <p>Convenience Fee <span onClick={()=>setcharge(true)}>What's this?</span></p>
+                    </div>
+                    <div className="orders delivery">
+                        <p>Delivery Fee</p>
+                        {ordertotal>1999?<p>Free <span>₹99.00</span></p>:<p>₹99.00</p>}
+                    </div>
+                    <div className="orders final">
+                        <p>Order Total</p>
+                        <p>₹{ordertotal>1999?ordertotal:ordertotal+99 }</p>
+                    </div>
+                    <div className="proceed">
+                        <p>PROCEED TO SHIPPING</p>
+                    </div>
                 </div>
-                <div className='del' onClick={()=>Deleteitem(item)}>
-                    <Trash2 />
-                </div>
-                </div>
-            )})}
-        {data.length>0?<><div className="total">
-            <p>SUBTOTAL</p>
-            <p>₹9999</p>
         </div>
-        <button className='checkout'>PROCEED TO CHECKOUT</button></>:null}
-        {/* <p className="reset">Reset Cart</p> */}
-        <p className='reset'>Free Shipping & Returns | 100% Handpicked | Assured Quality</p>
-    </div>}
-    </>
-  )
+        </>
+        :
+        <div className="emptycart">
+            <h1>Your Shopping Bag is Empty!!</h1>
+            <div className="wishlist_images"></div>
+            {/* <p className="wishlist">ADD FROM WISHLIST</p> */}
+            <NavLink to='/'>CONTINUE SHOPPING</NavLink>
+        </div>
+    )
 }
 
-export default Cart
+export default cart
+

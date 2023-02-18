@@ -22,13 +22,12 @@ async function dofetch(){
     setload(false)
     }
     else{
-      console.log('errorr')
+      throw error('error')
     }
     
   }
   catch(error){
     // setdata(null);
-    console.log(error)
     setload(false);
     seterror(true)
   }

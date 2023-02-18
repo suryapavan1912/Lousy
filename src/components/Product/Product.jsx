@@ -1,39 +1,53 @@
 import React from 'react'
 import { useState } from 'react'
 import './Product.scss'
-import { ChevronDown, Heart, ShoppingBag } from 'react-feather'
+import { AlertCircle, ChevronDown, Heart, ShoppingBag, ShoppingCart } from 'react-feather'
 import useFetch from '../fetch'
-import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { userr } from '../../features/counter/counterSlice'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Add, userr } from '../../features/counter/counterSlice'
 import axios from '../axios'
 
 function Product() {
+const navigate = useNavigate()
+const dispatch = useDispatch()
 const user = useSelector(userr)
 const varient = ['XS','S','M','L','XL'];
 const description = [<p>Extra Small <span>(XS)</span></p>,<p>Small <span>(S)</span></p>,<p>Medium <span>(M)</span></p>,<p>Large <span>(L)</span></p>,<p>Extra Large <span>(XL)</span></p>];
 const [sizetext, setsizetext] = useState('Select Size');
 const [size,setsize] = useState(null)
+const [selectsize,setselectsize] = useState(false)
 
 const {id} = useParams();
 const [image,setimage] = useState(0);
-const [quantity,setquantity]  = useState(0);
+const [quantity,setquantity]  = useState(1);
 const [data,error,load] = useFetch('/product/'+id);
+
+const [cartload,setcartload] = useState(false)
+const [carterror,setcarterror] =useState(false)
+const [gotocart,setgocart] = useState(false)
 
 async function Addedtocart(){
   try{
-    await axios.post('/user',{id : user.id , product : id});
+    const cartdata = {
+      id : user.id , product : { id , varient : {size,quantity} , info : { brand : data.brand , title : data.title , image : data.images[0] , price : data.price , oldprice : data.oldprice}}}
+    setcartload(true);
+    const updateuser = await axios.post('/cart',cartdata);
+    dispatch(Add(updateuser.data));
+    setcartload(false);
+    setgocart(true);
+    setcarterror(false);
     }
     catch(error) {
-      console.log(error);
+      setcarterror(true)
     }
 }
 
   return (
     <div>
-    {load && <div className="loading"><p>loading</p></div>}
+    {(load || cartload) && <div className="loading"><p>loading</p></div>}
     
-    {error && <div className="error"><p>Network Error. Please Try Reloading The Page.</p></div>}
+    {(error || carterror) && <div className="error"><p>Network Error. Please Try Reloading The Page.</p></div>}
     
     { data && 
     <div className='product'>
@@ -45,8 +59,7 @@ async function Addedtocart(){
           <img src={data.images[image]}  alt="" />
         </div>
       </div>
-      <div className="right">
-        <div className='top'>
+        <div className='right'>
           <div className="info">
             <p className='brand'>{data.brand}</p>
             <p className='title'>{data.title}</p>
@@ -56,20 +69,29 @@ async function Addedtocart(){
             {data.oldprice && <p className='old'>MRP <span>₹{data.oldprice}</span></p>}
             <p>{data.oldprice && <span className='discount'>({Math.round(100*((data.oldprice-data.price)/data.oldprice))}% OFF)</span>}</p>
           </div>
+          {selectsize && 
+          <div className="sizeerror"><AlertCircle /><p>Please select a size</p></div>
+          }
           <div className='size'>
             {sizetext}
             <div>
-              {varient.map((type,id)=> <button key={id} className={type === size ? 'active' : ''} onClick={(e)=>{setsizetext(description[id]);setsize(varient[id]);}}>{type}</button>)}
+              {varient.map((type,id)=> <button key={id} className={type === size ? 'active' : ''} onClick={(e)=>{setsizetext(description[id]);setsize(varient[id]);setselectsize(false);setgocart(false)}}>{type}</button>)}
             </div>
           </div>
           <div className="count">
-            <button onClick={()=>{setquantity(pre=>pre>0?pre-1:0)}}>-</button>
+            <button onClick={()=>{setquantity(pre=>pre>1?pre-1:1)}}>-</button>
             <p>{quantity}</p>
             <button onClick={()=>{setquantity(pre=>pre+1)}} >+</button>
           </div>
-          <div className="cart" onClick={Addedtocart}>
+          {gotocart ?
+          <div className="gotocart" onClick={()=>{navigate('/cart')}}>
+            <ShoppingCart/><p>GO TO CART</p>
+          </div>
+          :
+          <div className="addtocart" onClick={()=>{size?Addedtocart():setselectsize(true) }}>
           <ShoppingBag /><p>ADD TO CART</p>
           </div>
+          }
           <div className="wishlist">
             <Heart /><p>ADD TO WISHLIST</p>
           </div>
@@ -86,7 +108,6 @@ async function Addedtocart(){
             <ChevronDown />
           </div>
         </div>
-      </div>
     </div>}
     </div>
   )

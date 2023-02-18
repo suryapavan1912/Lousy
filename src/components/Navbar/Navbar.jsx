@@ -2,19 +2,21 @@ import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { ChevronDown, Heart, Search , ShoppingCart , User } from 'react-feather';
 import './Navbar.scss'
-import { useState } from 'react';
-import Cart from '../Cart/Cart';
 import { auth } from '../../firebase';
-import Signin from '../SignIn/Signin';
+import { useSelector } from 'react-redux';
+import { userr } from '../../features/counter/counterSlice';
 
 function Navbar() {
+const navigate = useNavigate()
+const userdata = useSelector(userr)
+let quantity = 0
 
-  const [cart,setcart] = useState(false)
-  const navigate = useNavigate()
+userdata?.cart?.forEach(item =>{
+  item.varient?.forEach(varient =>{
+    quantity += varient.quantity
+  })})
 
   return (
-      <>
-      <Signin />
       <div className='nav'>
         <div className='left'>
           <div className='arrows'>
@@ -30,7 +32,7 @@ function Navbar() {
           <NavLink to='/products?type=Accessories'>Accessories</NavLink>
         </div>
         <div className='center'>
-          <p>LOUSY</p>
+        <NavLink to='/'><p>LOUSY</p></NavLink>
         </div>
         <div className='right'>
           <NavLink to='/'>Home</NavLink>
@@ -42,20 +44,17 @@ function Navbar() {
             <div className='signout'>
               <User />
               <div className="dropdown">
-                <p onClick={()=>{auth.signOut()}}>Sign out</p>
+                <p onClick={()=>{auth.signOut();navigate('/')}}>Sign out</p>
               </div>
             </div>
             <Heart />
             <div className='divcon'>
-              <ShoppingCart onClick={()=>{setcart(!cart)}}/>
-              <p>0</p>
+              <NavLink to='/cart'><ShoppingCart /></NavLink>
+              <p>{quantity}</p>
             </div>
           </div>
         </div>
       </div>
-      {cart && <Cart />}
-      </>
-    
   )
 }
 

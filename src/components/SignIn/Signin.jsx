@@ -9,7 +9,6 @@ import axios from '../axios';
 function Signin() {
 
   const dispatch = useDispatch()
-
     const [login,setlogin] = useState(true)
     const [error,seterror] = useState(null)
     const [newuser,setnewuser] = useState(false)
@@ -20,18 +19,29 @@ function Signin() {
 
     async function Newuser(id,email,name){
       try{
-        await axios.post('/createuser',{id,email,name});
+        await axios.post('/user',{id,email,name});
         }
         catch(error) {
           console.log(error);
         }
       }
 
+      async function Updateuser(id){
+        try{
+          const updateduser = await axios.get('/user?userid='+id);
+          dispatch(Add(updateduser.data))
+          }
+          catch(error) {
+            console.log(error);
+          }
+        }
+
     useEffect(()=>{
     auth.onAuthStateChanged(user => {
     if (user) {
+      Updateuser(user.uid);
       setlogin(true);
-      dispatch(Add({ id : user.uid , email: user.email }))
+      // dispatch(Add({ id : user.uid , email: user.email }))
     } else {
       setlogin(false);
       dispatch(Remove())
@@ -97,7 +107,7 @@ async function Login(event){
         {newuser ?
         <form onSubmit={Signup}>
         <h1 >SIGN UP</h1>
-        {error&&<div className='error'><AlertCircle/><h4>{error}</h4></div>}
+        {error&&<div className='login_error'><AlertCircle/><h4>{error}</h4></div>}
         <h2>Email</h2>
         <input type='email' placeholder='Type your email' autoComplete="email" ref={user} required/>
         <h2>Username</h2>
@@ -113,7 +123,7 @@ async function Login(event){
         :
         <form onSubmit={Login}>
         <h1>LOGIN</h1>
-        {error&&<div className='error'><AlertCircle/><h4>{error}</h4></div>}
+        {error&&<div className='login_error'><AlertCircle/><h4>{error}</h4></div>}
         <h2>Email</h2>
         <input type='email' placeholder='Type your email' autoComplete="email" ref={user} required/>
         <h2>Password</h2>

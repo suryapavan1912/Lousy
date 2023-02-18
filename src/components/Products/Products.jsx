@@ -16,6 +16,7 @@ const banner = [
 // fetch
 const [selectedSubCats, setSelectedSubCats] = useState(null);
 const [order,setorder] = useState(0)
+const [maxprice,setmaxprice] = useState(50000)
 const [searchParams] = useSearchParams();
 
 useEffect(() => {
@@ -31,6 +32,8 @@ useEffect(() => {
     var radio = document.querySelectorAll('input[type="radio"]');
     for (i = 0; i < radio.length; i++) {
       radio[i].checked = false;}
+    setmaxprice(50000);
+    setorder(0);  
     
 }, [searchParams]);
 
@@ -48,9 +51,6 @@ for(let x=0;x<selectedSubCats?.length;x+=1){
 
 
 const [data,error,load] = useFetch(query_pass && `/products?${query}`)
-
-//price range
-const [maxprice,setmaxprice] = useState(50000)
 
 // price sorting
 

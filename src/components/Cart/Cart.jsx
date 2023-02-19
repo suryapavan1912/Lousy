@@ -22,6 +22,10 @@ function cart() {
     
 
   return (
+
+        !userdata ?
+        <div className="loading"><p>loading</p></div>
+        :
         ordertotal?
         <>
         {charge &&
@@ -38,7 +42,7 @@ function cart() {
                 <div className="left">
                     <div className="heading">
                         <p>My Bag <span>({quantity} items)</span></p>
-                        <NavLink to='/cart'>+  <span>Add from Wishlist</span></NavLink>
+                        <NavLink to='/wishlist'>+  <span>Add from Wishlist</span></NavLink>
                     </div>
                     {userdata?.cart.map((item,id) => { return(
                         <CartCard data={item} key={id}/>

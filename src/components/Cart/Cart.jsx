@@ -15,7 +15,11 @@ function cart() {
     userdata?.cart.forEach(item =>{
         item.varient?.forEach(varient =>{
           quantity += varient.quantity
-          bagtotal += item.info.oldprice*varient.quantity
+          if(item.info.oldprice){
+            bagtotal += item.info.oldprice*varient.quantity}
+          else{
+            bagtotal += item.info.price*varient.quantity
+          }
           ordertotal += item.info.price*varient.quantity
         })})
 

@@ -7,6 +7,7 @@ import Navbar from './components/Navbar/Navbar';
 import Product from './components/Product/Product';
 import Products from './components/Products/Products';
 import Signin from './components/SignIn/Signin';
+import Wishlist from './components/Wishlist/Wishlist';
 function App() {
   return (
       <Router>
@@ -17,6 +18,7 @@ function App() {
           <Route exact path='/products' element={<Products />} />
           <Route exact path='/product/:id'  element={<Product />} />
           <Route exact path='/cart' element={<Cart />} />
+          <Route exact path='/wishlist' element={<Wishlist />} />
           
         </Routes>
         <Footer />

@@ -12,10 +12,10 @@ const user = useSelector(userr)
 const [load,setload] =useState(false)
 const [error,seterror] =useState(false)
 
-  async function ProductRemoved(id,varient){
+  async function ProductRemoved(varient){
     try{
     setload(true);
-    const updated = await axios.post('/delete',{id : user.id, product_id : id , varient})
+    const updated = await axios.post('/delete',{id : user.id, product_id : props.data.id , varient})
     dispatch(Add(updated.data));
     setload(false);
     seterror(false);
@@ -24,11 +24,22 @@ const [error,seterror] =useState(false)
       seterror(true)
     }
   }
-  
+
+  async function AddtoWishlist(){
+    try {
+      setload(true);
+      const updated = await axios.post('/wishlist',{id : user.id, product : {id : props.data.id , info : props.data.info}})
+      dispatch(Add(updated.data));
+      setload(false);
+      seterror(false);
+    } catch (error) {
+      seterror(true)
+    }
+  }
   
   return(
     <>
-        {load && <div className="loading"><p>loading</p></div>}
+    {load && <div className="loading"><p>loading</p></div>}
     
     {error && <div className="error"><p>Network Error. Please Try Reloading The Page.</p></div>}
 
@@ -50,8 +61,8 @@ const [error,seterror] =useState(false)
         </div>
       </div>
       <div className='functions'>
-        <p onClick={()=>ProductRemoved(props.data.id,item)}>Remove</p>
-        <p>Move to Wishlist</p>
+        <p onClick={()=>ProductRemoved(item)}>Remove</p>
+        <p onClick={()=>{AddtoWishlist();ProductRemoved(item)}}>Move to Wishlist</p>
       </div>
     </div>
   )})}

@@ -47,7 +47,7 @@ userdata?.cart?.forEach(item =>{
                 <p onClick={()=>{auth.signOut();navigate('/')}}>Sign out</p>
               </div>
             </div>
-            <Heart />
+            <NavLink to='/wishlist'><Heart /></NavLink>
             <div className='divcon'>
               <NavLink to='/cart'><ShoppingCart /></NavLink>
               <p>{quantity}</p>

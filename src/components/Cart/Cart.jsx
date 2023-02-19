@@ -26,11 +26,10 @@ function cart() {
     
 
   return (
-
-        !userdata ?
-        <div className="loading"><p>loading</p></div>
-        :
-        ordertotal?
+        <>
+        {!userdata && <div className="loading"><p>loading</p></div>}
+        {
+        ordertotal? 
         <>
         {charge &&
         <div className="charge">
@@ -42,6 +41,7 @@ function cart() {
                 <p className="okay" onClick={()=>{setcharge(false)}}>Okay</p>
             </div>
         </div>}
+
         <div className='cart'>
                 <div className="left">
                     <div className="heading">
@@ -82,12 +82,22 @@ function cart() {
         :
         <div className="emptycart">
             <h1>Your Shopping Bag is Empty!!</h1>
-            <div className="wishlist_images"></div>
-            {/* <p className="wishlist">ADD FROM WISHLIST</p> */}
-            <NavLink to='/'>CONTINUE SHOPPING</NavLink>
+            {userdata?.wishlist.length>0 && 
+            <>
+            <div className="wishlist_images">
+                {
+                    userdata?.wishlist
+                    .filter((item,id) => id <3)
+                    .map((item,id) => {return(<img src={item.info.image} alt="" key={id} />)})
+                }
+            </div>
+            <NavLink to ='/wishlist' className='addfromwishlist'>ADD FROM WISHLIST</NavLink></>
+            }
+            <NavLink to='/' className='doshop'>CONTINUE SHOPPING</NavLink>
         </div>
-    )
-}
+    }
+    </>
+)}
 
 export default cart
 

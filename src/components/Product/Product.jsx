@@ -7,6 +7,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Add, userr } from '../../features/counter/counterSlice'
 import axios from '../axios'
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 function Product() {
 const navigate = useNavigate()
@@ -23,29 +25,86 @@ const [image,setimage] = useState(0);
 const [quantity,setquantity]  = useState(1);
 const [data,error,load] = useFetch('/product/'+id);
 
+//cart---------------------------------------------------------------------------------------
+
 const [cartload,setcartload] = useState(false)
 const [carterror,setcarterror] =useState(false)
 const [gotocart,setgocart] = useState(false)
 
-async function Addedtocart(){
-  try{
-    const cartdata = {
-      id : user.id , product : { id , varient : {size,quantity} , info : { brand : data.brand , title : data.title , image : data.images[0] , price : data.price , oldprice : data.oldprice}}}
+// async function Addedtocart(){
+//   try{
+//     const cartdata = { id : user.id , product : { id , varient : {size,quantity} , info : { brand : data.brand , title : data.title , image : data.images[0] , price : data.price , oldprice : data.oldprice}}}
+//     setcartload(true);
+//     const updateuser = await axios.post('/cart',cartdata);
+//     dispatch(Add(updateuser.data));
+//     setcartload(false);
+//     setgocart(true);
+//     setcarterror(false);
+//     }
+//     catch(error) {
+//       setcarterror(true)
+//     }
+// }
+
+//wishlist-----------------------------------------------------------------------------------
+
+const [Inwishlist,setInwishlist] = useState(false)
+
+let real = false
+// user?.wishlist.forEach(item =>{ if (item.id === id){ real = true }})
+if (real){ setInwishlist(true)}
+
+async function update(url){
+  let senddata
+  if(url === '/cart'){
+      senddata = { id : user.id , product : { id , varient : {size,quantity} , info : { brand : data.brand , title : data.title , image : data.images[0] , price : data.price , oldprice : data.oldprice}}}
+  }
+  else if(url === '/wishlist'){
+      senddata = {id : user.id, product : {id , info : { brand : data.brand , title : data.title , image : data.images[0] , price : data.price , oldprice : data.oldprice}}}
+  }
+  else if(url === '/deletewish'){
+      senddata = {id : user.id, product : id }
+  }
+    try {
     setcartload(true);
-    const updateuser = await axios.post('/cart',cartdata);
-    dispatch(Add(updateuser.data));
+    const updated = await axios.post(url,senddata)
+    dispatch(Add(updated.data));
     setcartload(false);
-    setgocart(true);
     setcarterror(false);
-    }
-    catch(error) {
-      setcarterror(true)
-    }
-}
+    (url === '/cart')&&setgocart(true)
+  } catch (error) {
+    setcarterror(true)
+  }
+  }
+
+
+// async function Removefromwishlist(){
+//   try {
+//     setcartload(true);
+//     const updated = await axios.post('/deletewish',{id : user.id, product : id })
+//     dispatch(Add(updated.data));
+//     setcartload(false);
+//     setcarterror(false);
+//   } catch (error) {
+//     setcarterror(true)
+//   }
+// }
+
+// async function Addtowishlist(){
+//   try {
+//     setcartload(true);
+//     const updated = await axios.post('/wishlist',{id : user.id, product : {id , info : { brand : data.brand , title : data.title , image : data.images[0] , price : data.price , oldprice : data.oldprice}}})
+//     dispatch(Add(updated.data));
+//     setcartload(false);
+//     setcarterror(false);
+//   } catch (error) {
+//     setcarterror(true)
+//   }
+// }
 
   return (
     <div>
-    {(load || cartload) && <div className="loading"><p>loading</p></div>}
+    {(load || cartload || !user) && <div className="loading"><p>loading</p></div>}
     
     {(error || carterror) && <div className="error"><p>Network Error. Please Try Reloading The Page.</p></div>}
     
@@ -88,13 +147,19 @@ async function Addedtocart(){
             <ShoppingCart/><p>GO TO CART</p>
           </div>
           :
-          <div className="addtocart" onClick={()=>{size?Addedtocart():setselectsize(true) }}>
+          <div className="addtocart" onClick={()=>{size?update('/cart'):setselectsize(true)}}>
           <ShoppingBag /><p>ADD TO CART</p>
           </div>
           }
-          <div className="wishlist">
-            <Heart /><p>ADD TO WISHLIST</p>
+          {!Inwishlist ?
+          <div className="addtowishlist"  onClick={()=>{update('/wishlist');setInwishlist(true)}}>
+            <FavoriteBorderIcon /><p>ADD TO WISHLIST</p>
           </div>
+          :
+          <div className="addtowishlist"  onClick={()=>{update('/deletewish');setInwishlist(false)}}>
+            <FavoriteIcon /><p>REMOVE FROM WISHLIST</p>
+          </div>
+          }
           {data.description && <div className='details'>
             <p>Product Details</p>
             <ul>

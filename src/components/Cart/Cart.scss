@@ -91,12 +91,37 @@
     }
 
 .emptycart{
-    height: 328px;
+    min-height: 328px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     justify-content: center;
     align-items: center;
+    h1{
+        margin-bottom: 0px;
+        text-transform: capitalize;
+        font-weight: 100;
+        font-size: 30px;
+    }
+    .wishlist_images{
+        display: flex;
+        align-items: center;
+        img{
+            width: 200px;
+            height: 300px;
+            object-fit: contain;
+        }
+    }
+
+    .addfromwishlist{
+        color: white;
+        background-color: #000000;
+        padding: 15px 40px;
+        font-weight: 100;
+    }
+    .doshop{
+        color: #4285f4;
+    }
 }
 .charge{
     height: 100vh;

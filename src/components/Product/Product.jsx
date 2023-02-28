@@ -104,7 +104,7 @@ async function update(url){
 
   return (
     <div>
-    {(load || cartload || !user) && <div className="loading"><p>loading</p></div>}
+    {(load || cartload ) && <div className="loading"><p>loading</p></div>}
     
     {(error || carterror) && <div className="error"><p>Network Error. Please Try Reloading The Page.</p></div>}
     

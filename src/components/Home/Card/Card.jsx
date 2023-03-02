@@ -1,11 +1,13 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import './Card.scss'
 
 function Card(props) {
+
+  const navigate = useNavigate()
+
   return (
-      <NavLink target="_blank" to={`/product/${props.product.id}`}>
-        <div  className='card'>
+        <div  className='card' onClick={()=>{navigate(`/product/${props.product.id}`)}}>
           <div className="image">
             {props.product.exclusive && <span>Exclusive</span>}
             <img className='main' src={props.product.images[0]} alt="" />
@@ -19,7 +21,6 @@ function Card(props) {
             <p>{props.product.oldprice && <span className='discount'>{Math.round(100*((props.product.oldprice-props.product.price)/props.product.oldprice))}% off</span>}</p>
           </div>
         </div>
-      </NavLink>
   )
 }
 

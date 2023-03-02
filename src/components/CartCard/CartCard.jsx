@@ -25,17 +25,19 @@ const [error,seterror] =useState(false)
     }
   }
 
-  async function AddtoWishlist(){
-    try {
+  async function Addanddelete(varient){
+    try{
       setload(true);
+      await axios.post('/delete',{id : user.id, product_id : props.data.id , varient})
       const updated = await axios.post('/wishlist',{id : user.id, product : {id : props.data.id , info : props.data.info}})
       dispatch(Add(updated.data));
       setload(false);
       seterror(false);
-    } catch (error) {
-      seterror(true)
+      }
+      catch(error) {
+        seterror(true)
+      }
     }
-  }
   
   return(
     <>
@@ -62,7 +64,7 @@ const [error,seterror] =useState(false)
       </div>
       <div className='functions'>
         <p onClick={()=>ProductRemoved(item)}>Remove</p>
-        <p onClick={()=>{AddtoWishlist();ProductRemoved(item)}}>Move to Wishlist</p>
+        <p onClick={()=>{Addanddelete(item)}}>Move to Wishlist</p>
       </div>
     </div>
   )})}

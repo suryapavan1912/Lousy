@@ -6,13 +6,7 @@ function Contact() {
     <div className='contact'>
         <div className="wraper">
             <div>
-                <p>BE IN TOUCH WITH US:</p>
-            </div>
-            <div>
-                <form>
-                <input type="text" placeholder='Enter your e-mail'/>
-                <button>JOIN US</button>
-                </form>
+                <p>BE IN TOUCH WITH US :</p>
             </div>
             <div className='social'>
                 <p><Facebook/></p>

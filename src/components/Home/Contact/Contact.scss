@@ -1,44 +1,11 @@
 .contact{
     background-color: #4285F4;
-    padding: 10px 0px;
-
-    p{
-        margin: 0px;
-        color: white;
-        font-size: 16px;
-    }
-
-    input{
-        width: 200px;
-        padding: 10px 10px;
-        font-size: 15px;
-        border: none;
-        border-top-left-radius: 5px;
-        border-bottom-left-radius: 5px;
-    }
-    button{
-        padding: 10px;
-        font-size: 15px;
-        border: none;
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
-        color: white;
-        background-color: #2d2d2d;
-    }
-
-    input:focus{outline: none;}
-
-    form{
-        display: flex ;
-        justify-content: center;
-        align-items: center;
-    }
-
+    padding: 20px 0px;
     .wraper{
             display: flex;
-            max-width: 60%;
-            justify-content: space-between;
+            width: max-content;
             align-items: center;
+            gap: 10px;
             margin: auto;
 
             .social{
@@ -50,6 +17,12 @@
                     height: 20px;
                     }
             }
+            p{
+                margin: 0px;
+                color: white;
+                font-size: 16px;
+            }
+        
 
     }
 }

@@ -1,10 +1,10 @@
-a{
-    text-decoration: none;
     .card{
         display: flex;
         flex-direction: column;
         width: 200px;
         gap: 10px;
+        text-decoration: none;
+        cursor: pointer;
     
         .image{
             width: 100%;
@@ -20,6 +20,7 @@ a{
                 right: 0px;
                 padding: 6px;
                 z-index: 3;
+                cursor: pointer;
             }
             img{
                height: 100%;
@@ -70,4 +71,3 @@ a{
         }
     
     }
-}

@@ -8,9 +8,10 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 function Products() {
 
 const banner = [
-                "https://images.pexels.com/photos/10330448/pexels-photo-10330448.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-                "https://images.pexels.com/photos/13255965/pexels-photo-13255965.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-                "https://images.pexels.com/photos/5911467/pexels-photo-5911467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "https://images.pexels.com/photos/1049317/pexels-photo-1049317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "https://images.pexels.com/photos/1549280/pexels-photo-1549280.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "https://images.pexels.com/photos/39369/baby-teddy-bear-cute-39369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "https://images.pexels.com/photos/313719/pexels-photo-313719.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               ]
 
 // fetch
@@ -19,7 +20,6 @@ const [selectedSubCats, setSelectedSubCats] = useState(null);
 const [order,setorder] = useState(0)
 const [maxprice,setmaxprice] = useState(50000)
 const [searchParams] = useSearchParams();
-
 useEffect(() => {
   let filter = ''
   for (const entry of searchParams.entries()) {
@@ -64,12 +64,12 @@ data.sort((a,b)=> b.price- a.price )
 }
 
 //set categories
-let sorts
-if (selectedSubCats?.includes('Men')){ sorts = ["Shirts","T-shirts","Jackets","Jeans","Trousers"] } 
-else if(selectedSubCats?.includes('Women')){ sorts = ["Tops","Jumpsuits","Jackets","Jeans","Skirts"] }
-else if(selectedSubCats?.includes('Children')){sorts = ["Tops","Jumpsuits","Jackets","Jeans","Skirts"]}
-else if(selectedSubCats?.includes('Accessories')){ sorts = ["Watches","Ties","Belts","Shoes","Sunglasses"]}
-else if(selectedSubCats?.includes('clothing')){sorts = ["Shirts","T-shirts","Tops","Jumpsuits","Jackets","Jeans","Trousers","Skirts"]}
+let sorts,imag
+if (selectedSubCats?.includes('Men')){ sorts = ["Shirts","T-shirts","Jackets","Jeans","Trousers"] ; imag = 0} 
+else if(selectedSubCats?.includes('Women')){ sorts = ["Tops","Jumpsuits","Jackets","Jeans","Skirts"] ; imag = 1}
+else if(selectedSubCats?.includes('Children')){sorts = ["Tops","Jumpsuits","Jackets","Jeans","Skirts"] ; imag = 2}
+else if(selectedSubCats?.includes('Accessories')){ sorts = ["Watches","Ties","Belts","Shoes","Sunglasses"] ; imag = 3}
+else if(selectedSubCats?.includes('clothing')){sorts = ["Shirts","T-shirts","Tops","Jumpsuits","Jackets","Jeans","Trousers","Skirts"] ; imag = 4}
 
   return (
     <>
@@ -97,7 +97,7 @@ else if(selectedSubCats?.includes('clothing')){sorts = ["Shirts","T-shirts","Top
       {
       data &&
       <div className="right">
-        <div><img className='catimg' src={banner[1]} alt="" /></div>
+        <div><img className='catimg' src={banner[imag]} alt="" /></div>
         <div className='contain'>
             {
             data?.filter(item => maxprice>item.price)

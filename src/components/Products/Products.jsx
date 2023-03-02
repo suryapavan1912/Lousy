@@ -43,8 +43,6 @@ const [data,error,load] = useFetch(selectedSubCats && `/products?${selectedSubCa
 useEffect(()=>{
   var checkboxes = document.querySelectorAll('input[type="checkbox"]');
   for (var i = 0; i < checkboxes.length; i++) {
-    console.log(checkboxes[i].name);
-    console.log(i);
     if (selectedSubCats.includes(checkboxes[i].name)){
       checkboxes[i].checked = true;
     }

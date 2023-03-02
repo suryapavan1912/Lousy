@@ -1,29 +1,30 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { Add, userr } from '../../features/counter/counterSlice'
 import './Wishlist.scss'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import axios from '../axios'
 
 function Wishlist() {
-
-    const userdata = useSelector(userr)
-    const dispatch = useDispatch
-    const [cartload,setcartload] = useState(false)
+  const navigate  = useNavigate()
+  const userdata = useSelector(userr)
+  const dispatch = useDispatch()
+  const [cartload,setcartload] = useState(false)
   const [carterror,setcarterror] =useState(false)
 
-async function Deleteitem(id){
+async function Deleteitem(id,e){
+   if (!e) var e = window.event;
+    e.cancelBubble = true;
+    if (e.stopPropagation) e.stopPropagation();
   try {
     setcartload(true);
     const updated = await axios.post('/deletewish',{id : userdata.id, product : id });
-    console.log(updated.data);
     dispatch(Add(updated.data));
     setcartload(false);
     setcarterror(false);
   } catch (error) {
     setcarterror(true);
-    console.log(error);
   }
 }
     
@@ -39,11 +40,10 @@ async function Deleteitem(id){
       <div className="array">
         {
           userdata?.wishlist?.map(item => {return(
-            <NavLink key={item.id} to={`/product/${item.id}`}>
-        <div  className='card'>
+        <div  className='card' key={item.id} onClick={()=>{navigate(`/product/${item.id}`)}}>
           <div className="image">
             <img className='main' src={item.info.image} alt="" />
-            <div className="deleteicon" onClick={()=>{Deleteitem(item.id)}}><DeleteOutlineIcon /></div>
+            <div className="deleteicon" onClick={(e)=>{Deleteitem(item.id,e)}}><DeleteOutlineIcon /></div>
           </div>
             <p className="brand">{item.info.brand}</p>
             <p className='title'>{item.info.title}</p>
@@ -53,7 +53,6 @@ async function Deleteitem(id){
             <p>{item.info.oldprice && <span className='discount'>{Math.round(100*((item.info.oldprice-item.info.price)/item.info.oldprice))}% off</span>}</p>
           </div>
         </div>
-      </NavLink>
           )})
         }
         </div>

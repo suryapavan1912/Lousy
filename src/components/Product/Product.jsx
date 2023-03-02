@@ -1,7 +1,6 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useEffect , useState } from 'react'
 import './Product.scss'
-import { AlertCircle, ChevronDown, Heart, ShoppingBag, ShoppingCart } from 'react-feather'
+import { AlertCircle, ChevronDown , ShoppingBag, ShoppingCart } from 'react-feather'
 import useFetch from '../fetch'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -47,12 +46,13 @@ const [gotocart,setgocart] = useState(false)
 // }
 
 //wishlist-----------------------------------------------------------------------------------
-
+// console.log(user?.wishlist);
+// console.log(id);
 const [Inwishlist,setInwishlist] = useState(false)
+useEffect(() => {
+user?.wishlist.map(item =>{ if (item.id === id){ setInwishlist(true) }})
+}, [user])
 
-let real = false
-// user?.wishlist.forEach(item =>{ if (item.id === id){ real = true }})
-if (real){ setInwishlist(true)}
 
 async function update(url){
   let senddata
@@ -104,7 +104,7 @@ async function update(url){
 
   return (
     <div>
-    {(load || cartload ) && <div className="loading"><p>loading</p></div>}
+    {(load || cartload || !user ) && <div className="loading"><p>loading</p></div>}
     
     {(error || carterror) && <div className="error"><p>Network Error. Please Try Reloading The Page.</p></div>}
     

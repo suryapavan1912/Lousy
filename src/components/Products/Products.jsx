@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Products.scss'
 import Card from '../Home/Card/Card'
 import useFetch from '../fetch'
-import { useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 
 
 function Products() {
@@ -14,43 +14,47 @@ const banner = [
               ]
 
 // fetch
+const navigate = useNavigate()
 const [selectedSubCats, setSelectedSubCats] = useState(null);
 const [order,setorder] = useState(0)
 const [maxprice,setmaxprice] = useState(50000)
 const [searchParams] = useSearchParams();
 
 useEffect(() => {
-
-  let filter = []
+  let filter = ''
   for (const entry of searchParams.entries()) {
-    filter.push(entry)
-  setSelectedSubCats(filter)}
-
-    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    for (var i = 0; i < checkboxes.length; i++) {
-      checkboxes[i].checked = false;}
-    var radio = document.querySelectorAll('input[type="radio"]');
-    for (i = 0; i < radio.length; i++) {
-      radio[i].checked = false;}
-    setmaxprice(50000);
-    setorder(0);  
-    
+    filter = filter + entry[0]+'='+entry[1]+'&'
+  }
+  setSelectedSubCats(filter)
 }, [searchParams]);
 
-function handleChange(e){
+ function handleChange(e){
   const value = e.target.value;
   const isChecked = e.target.checked;
-  setSelectedSubCats(isChecked ? [...selectedSubCats,['category', value]] : selectedSubCats.filter((item) => item[1] !== value))}
+  setSelectedSubCats(isChecked ? selectedSubCats + 'category=' + value + '&' : selectedSubCats.replace('category='+ value + '&', ''))
+}
 
-let query = ''
-let query_pass = false
-for(let x=0;x<selectedSubCats?.length;x+=1){
-  query_pass = true
-  query = query + selectedSubCats[x][0] + '=' + selectedSubCats[x][1] + '&' }
+useEffect(()=>{
+  selectedSubCats && navigate('/products?' + selectedSubCats.substring(0,selectedSubCats.length-1) )
+},[selectedSubCats])
 
+const [data,error,load] = useFetch(selectedSubCats && `/products?${selectedSubCats}`)
 
-
-const [data,error,load] = useFetch(query_pass && `/products?${query}`)
+useEffect(()=>{
+  var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  for (var i = 0; i < checkboxes.length; i++) {
+    console.log(checkboxes[i].name);
+    console.log(i);
+    if (selectedSubCats.includes(checkboxes[i].name)){
+      checkboxes[i].checked = true;
+    }
+    else{
+      checkboxes[i].checked = false;}
+  }
+  var radio = document.querySelectorAll('input[type="radio"]');
+  for (i = 0; i < radio.length; i++) {
+    radio[i].checked = false;}
+},[selectedSubCats])
 
 // price sorting
 
@@ -63,11 +67,11 @@ data.sort((a,b)=> b.price- a.price )
 
 //set categories
 let sorts
-if (query.includes('Men')){ sorts = ["Shirts","T-shirts","Jackets","Jeans","Trousers"] } 
-else if(query.includes('Women')){ sorts = ["Tops","Jumpsuits","Jackets","Jeans","Skirts"] }
-else if(query.includes('Children')){sorts = ["Tops","Jumpsuits","Jackets","Jeans","Skirts"]}
-else if(query.includes('Accessories')){ sorts = ["Watches","Ties","Belts","Shoes","Sunglasses"]}
-else{sorts = ["Shirts","T-shirts","Tops","Jumpsuits","Jackets","Jeans","Trousers","Skirts"]}
+if (selectedSubCats?.includes('Men')){ sorts = ["Shirts","T-shirts","Jackets","Jeans","Trousers"] } 
+else if(selectedSubCats?.includes('Women')){ sorts = ["Tops","Jumpsuits","Jackets","Jeans","Skirts"] }
+else if(selectedSubCats?.includes('Children')){sorts = ["Tops","Jumpsuits","Jackets","Jeans","Skirts"]}
+else if(selectedSubCats?.includes('Accessories')){ sorts = ["Watches","Ties","Belts","Shoes","Sunglasses"]}
+else if(selectedSubCats?.includes('clothing')){sorts = ["Shirts","T-shirts","Tops","Jumpsuits","Jackets","Jeans","Trousers","Skirts"]}
 
   return (
     <>
@@ -75,13 +79,12 @@ else{sorts = ["Shirts","T-shirts","Tops","Jumpsuits","Jackets","Jeans","Trousers
     
     {error && <div className="error"><p>Network Error. Please Try Reloading The Page.</p></div>}
     
-    {
-    data &&
+
     <div className="products">
       <div className="left">
         <div className="filteritem">
           <h1>Product Categories</h1>
-          {sorts.map((item,id) => <div className="inputitem" key={id} ><input type="checkbox" onClick={handleChange} id={item} value={item} name={item} /><label htmlFor={item}>{item}</label></div>)}
+          {sorts?.map((item,id) => <div className="inputitem" key={id} ><input type="checkbox" onClick={handleChange} id={item} value={item} name={item} /><label htmlFor={item}>{item}</label></div>)}
           </div>
         <div className="filteritem">
           <h1>Filter by price</h1>
@@ -93,7 +96,8 @@ else{sorts = ["Shirts","T-shirts","Tops","Jumpsuits","Jackets","Jeans","Trousers
           <div className="inputitem"><input type="radio" name="radio" id="5" onChange={()=>setorder(2)} /><label htmlFor="5" >Price(Highest first)</label></div>
         </div>
       </div>
-
+      {
+      data &&
       <div className="right">
         <div><img className='catimg' src={banner[1]} alt="" /></div>
         <div className='contain'>
@@ -103,8 +107,8 @@ else{sorts = ["Shirts","T-shirts","Tops","Jumpsuits","Jackets","Jeans","Trousers
             }
         </div>
       </div>
-    </div>
     }
+    </div>
     </>
   )
 }

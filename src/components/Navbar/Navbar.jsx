@@ -50,7 +50,7 @@ userdata?.cart?.forEach(item =>{
             <NavLink to='/wishlist'><Heart /></NavLink>
             <div className='divcon'>
               <NavLink to='/cart'><ShoppingCart /></NavLink>
-              <p>{quantity}</p>
+              <p style={{display : quantity?'flex':'none'}}>{quantity}</p>
             </div>
           </div>
         </div>
